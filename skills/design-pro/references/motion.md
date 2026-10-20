@@ -54,7 +54,8 @@ Conserva parámetros concretos como puntos de partida revisables, nunca como gar
 | Cambio local o salida breve | 150–250 ms | Mantener continuidad sin demorar la siguiente acción. |
 | Expansión, detalle o cambio de contexto | 250–400 ms | Relacionar origen y destino con una resolución legible. |
 | Cascada justificada | Separación de 30–70 ms, presupuesto total breve | Evitar que el último elemento útil espere para poder usarse. |
-| Resorte de referencia de Taste | `stiffness: 100`, `damping: 20` | Ajustar masa, amplitud y amortiguación al objeto y a la API instalada. No aplicarlo a todo. |
+| Resolución precisa | Asentamiento sin rebote perceptible | Adecuada cuando la posición final importa para leer, comparar o accionar. Ajustar la curva a la distancia. |
+| Resolución elástica | Un sobrepaso breve como máximo, si la dirección lo justifica | Ajustar masa y amortiguación en la API instalada hasta lograr ese comportamiento; comprobar interrupción y repetición. |
 
 Registra los valores elegidos para el gesto dominante y sus variantes cuando la dirección dependa del movimiento. Si el motor no usa esos parámetros físicos, conserva el carácter observable mediante sus controles propios. La tabla es una referencia de diseño; verifica la implementación en el render.
 

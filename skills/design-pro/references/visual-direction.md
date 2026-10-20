@@ -49,7 +49,7 @@ Define la pieza protagonista y compruébala antes de extender el lenguaje a las 
 
 La ficha puede vivir en la conversación. Guárdala en el proyecto si es parte de lo pedido o el trabajo necesita un documento persistente; no crees documentación auxiliar para cada ajuste.
 
-## Controles de Taste y sus niveles
+## Controles de dirección y sus niveles
 
 Los valores iniciales están definidos en `SKILL.md`; ese es el único lugar donde se configura el punto de partida. Conserva los tres controles explícitos en la ficha, aunque el usuario responda en lenguaje natural. Ajusta los valores efectivos al producto y registra si provienen del brief, una referencia, una elección del usuario o el perfil inicial.
 
@@ -82,7 +82,7 @@ Comprueba qué pesos y caracteres ofrece la familia real. Una familia editorial 
 
 Úsalo cuando se pidan referencias o una exploración de ocho estilos. Conserva producto, audiencia, contenido y acción principal para que la comparación tenga sentido.
 
-Una biblioteca inicial posible:
+Estas ocho familias siguen disponibles como punto de partida. Para ampliar o profundizar los estilos según el brief, consulta la [biblioteca de estilos y lenguajes visuales](style-library.md):
 
 | Dirección | Decisión a explorar |
 | --- | --- |
@@ -100,6 +100,8 @@ Adapta o reemplaza estas familias según el producto; no es una lista obligatori
 Para una imagen 4 × 2, reserva una celda coherente por dirección y acompaña el resultado con una leyenda A–H. Comprueba el tablero generado: ocho celdas distintas, correspondencia clara con la leyenda y cumplimiento de los bloqueos. Si una celda viola el brief, corrígela antes de ofrecerla como opción. La generación de imágenes puede producir texto imperfecto; no lo presentes como copy aprobado.
 
 Para referencias reales, inspecciona las pantallas antes de citarlas y enlaza su fuente. Explica qué se toma y qué se descarta. No atribuyas una propuesta generada a un producto real.
+
+Elige después recursos del [catálogo de decisiones visuales](creative-library.md) por la tarea que resuelven. Una familia como «industrial» puede usar una ficha de producto, una comparación o una escena narrativa; no obliga a emplear un componente particular. Si combinas referencias, registra qué relación visual tomas de cada una y conserva una dirección dominante.
 
 ## Prompt de generación adaptable
 

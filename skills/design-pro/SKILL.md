@@ -3,7 +3,7 @@ name: design-pro
 license: MIT
 description: "Diseña, construye, ajusta y audita interfaces web con identidad y sin clichés de IA (anti-slop). Usar para dirección visual, rediseños, referencias, UX, motion y responsive. Integra una entrevista de al menos 15 preguntas en proyectos abiertos, contrato observable del brief y aceptación independiente de funcionamiento, fidelidad visual e impacto temporal. Los ajustes puntuales conservan decisiones resueltas. No usar para backend ni cambios sin efecto en la interfaz."
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
 ---
 
 # Design Pro
@@ -12,11 +12,9 @@ Diseña desde la tarea de la persona y una idea visual reconocible. Construye id
 
 Habla en el idioma del usuario. Explica las decisiones en términos de su efecto visible. Esta skill es autónoma: incluye su entrevista y funciona con las herramientas disponibles en Claude o Codex, sin requerir otra skill, plugin, memoria personal ni stack determinado.
 
-Basada en [Taste Skill, de Leonxlnx](https://github.com/Leonxlnx/taste-skill), con su atribución conservada en el archivo `LICENSE` incluido. Design Pro adapta su configuración y catálogo e incorpora el flujo de entrevista, UX y verificación descrito aquí.
+## Controles de dirección
 
-## Configuración activa de Taste
-
-Conserva los tres controles de la skill base como una configuración explícita. Para una creación nueva sin dirección resuelta, parte de:
+Usa tres controles explícitos para traducir la dirección a decisiones de composición, movimiento e información. Para una creación nueva sin dirección resuelta, parte de:
 
 ```text
 DESIGN_VARIANCE: 8
@@ -112,11 +110,13 @@ La entrevista termina cuando se han trabajado las quince preguntas y están clar
 
 Tras la entrevista o ante una dirección ya definida, lee [dirección visual](references/visual-direction.md). Produce una ficha breve con objetivo, audiencia, acción principal, contenido, idea visual dominante, tipografía, color, imágenes, motion, prioridad mobile y excepciones explícitas. Separa decisiones del usuario de recomendaciones y suposiciones.
 
+Cuando se pidan estilos o alternativas, consulta la [biblioteca de estilos y lenguajes visuales](references/style-library.md). Conserva el repertorio de referencias y elige familias por el brief; un estilo no impone un efecto, un componente ni una excepción a los bloqueos.
+
 Traduce los requisitos explícitos a un contrato positivo: pedido → resultado observable → evidencia que lo validará. Incluye el carácter visual y el protagonismo del material, además de las funciones. Un claim, una familia tipográfica o un color aislados no demuestran una dirección. Si el pedido exige una escena animada protagonista, un retrato fijo con variaciones mínimas no satisface ese contrato.
 
 Define `DESIGN_VARIANCE`, `MOTION_INTENSITY` y `VISUAL_DENSITY` según el caso y explica su efecto visible. Son controles de diseño, no pesos internos del modelo ni parámetros exactos de render. Una referencia elegida determina la composición por encima de esos controles.
 
-Cuando falten recursos concretos de composición, navegación, galerías o movimiento, consulta el [catálogo creativo heredado de Taste](references/creative-library.md). Conserva ese repertorio como inspiración contextual, con las técnicas bloqueadas separadas de las elegibles. El tablero de ocho estilos explora direcciones; este catálogo aporta soluciones dentro de una dirección.
+Cuando necesites resolver cómo presentar, ordenar, comparar, explorar, operar o narrar contenido, consulta el [catálogo de decisiones visuales](references/creative-library.md). Elige por el problema del brief y comprueba su criterio mobile; evita acumular patrones por variedad. El tablero de ocho estilos explora direcciones; el catálogo ayuda a convertir la dirección elegida en una interfaz concreta.
 
 ### Si pide referencias desde el primer prompt
 
