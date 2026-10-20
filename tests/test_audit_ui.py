@@ -37,6 +37,8 @@ class AuditTrial(unittest.TestCase):
         code, report = self.run_audit()
         self.assertEqual(code, 0)
         self.assertEqual(report['findings'], [])
+        self.assertEqual(report['scope'], 'static_source_patterns_only')
+        self.assertEqual(report['creative_verdict'], 'not_assessed')
         self.assertEqual(before, hashlib.sha256(file.read_bytes()).digest())
 
     def test_actual_css_and_motion_patterns(self):

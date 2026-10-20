@@ -31,6 +31,7 @@ Ejemplo: si el menú cambia a 768 px, revisar 767, 768 y 769. Si el texto falla 
 - Desbordamiento horizontal de página y de componentes; no ocultarlo globalmente para hacer pasar la prueba.
 - Saltos de títulos, ancho de lectura, tamaños legibles y espaciado entre secciones.
 - Encuadre completo: cuánto contenido, imagen y siguiente acción se ve en la altura disponible.
+- Protagonismo prometido: comprobar que el medio o la demostración pedidos dominen donde corresponde y no queden desplazados debajo del primer encuadre por el texto o los controles.
 - Imágenes con dimensiones reservadas, recorte pertinente y resolución adecuada.
 - Nombres y títulos largos, acentos, cantidades grandes, vacíos, listas extensas y datos faltantes.
 - Cambios de fuente o carga de medios que alteran la composición.
@@ -51,7 +52,13 @@ No elijas `100dvh` universalmente: usa altura por contenido, `svh` estable o `dv
 
 Usa el mismo viewport, scroll y estado al comparar referencia, antes y después. Recorre la página con scroll real antes de capturar secciones cuya aparición depende del scroll. Espera la carga y el tamaño final de los medios.
 
+Incluye el viewport real del panel o ventana donde se evalúa el trabajo si se conoce; no compruebes solo presets amplios. Registra ancho, alto y posición del medio protagonista. Un hero correcto a 1440 px puede relegar su demostración en una ventana más estrecha aunque no haya overflow.
+
+Si se solicitó una escena animada, observa el mismo ciclo en el encuadre mobile y en el principal. Adaptar el coste o la disposición no debe convertirla silenciosamente en la imagen fija que el brief descartó. La alternativa accesible con movimiento reducido conserva el significado y se evalúa por separado.
+
 Las capturas prueban composición. Ejecutar acciones prueba comportamiento. Combina ambos cuando el pedido incluya interacción.
+
+La fidelidad al brief y el impacto temporal se registran además de los resultados responsive en [aceptación](acceptance.md). El resultado sin overflow no compensa un medio protagonista invisible o un lenguaje visual distinto del pedido.
 
 Para trabajo amplio, conserva un registro de evidencia proporcional:
 

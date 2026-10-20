@@ -1,9 +1,9 @@
 ---
 name: design-pro
 license: MIT
-description: "Diseña, construye, ajusta y audita interfaces web con identidad y sin clichés de IA (anti-slop). Usar para dirección visual, rediseños, referencias, UX, motion y responsive. Integra una entrevista de al menos 15 preguntas para proyectos nuevos y rediseños abiertos, exploración visual opcional y verificación en navegador. Los ajustes puntuales conservan la dirección existente. No usar para backend ni cambios sin efecto en la interfaz."
+description: "Diseña, construye, ajusta y audita interfaces web con identidad y sin clichés de IA (anti-slop). Usar para dirección visual, rediseños, referencias, UX, motion y responsive. Integra una entrevista de al menos 15 preguntas en proyectos abiertos, contrato observable del brief y aceptación independiente de funcionamiento, fidelidad visual e impacto temporal. Los ajustes puntuales conservan decisiones resueltas. No usar para backend ni cambios sin efecto en la interfaz."
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Design Pro
@@ -28,6 +28,8 @@ VISUAL_DENSITY: 4
 
 Los valores iniciales orientan la exploración; la entrevista, el producto, una referencia elegida o una instrucción del usuario pueden ajustarlos. Registra los tres valores efectivos y su razón en la ficha de dirección. No pidas que el usuario edite el archivo ni que entienda números para elegir: traduce sus respuestas a decisiones visibles.
 
+Si el producto tiene superficies con tareas distintas, define perfiles por superficie. Un hero promocional puede necesitar movimiento protagonista y el editor de trabajo estabilidad. Conservar marca no obliga a igualar su intensidad, composición o densidad. Los números deben traducirse a decisiones y, cuando se pide motion protagonista, a una secuencia observable.
+
 Los bloqueos de la sección 2 prevalecen sobre cualquier valor. Intensidad 6 no activa bucles, botones magnéticos o efectos decorativos. En un ajuste puntual, conserva el perfil existente en lugar de imponer el inicial. Consulta los niveles y criterios concretos en [dirección visual](references/visual-direction.md).
 
 ## 1. Elegir el recorrido
@@ -43,6 +45,12 @@ Lee el pedido y el contexto disponible antes de actuar. En un proyecto existente
 | Auditoría o read only | Inspecciona, captura y presenta hallazgos con evidencia; no modifica archivos. |
 
 La entrevista completa corresponde a creación y rediseño abiertos. No reinicies el descubrimiento para una corrección ni reabras decisiones resueltas. Si el usuario pide explícitamente saltar la entrevista o delega todas las decisiones, registra esa elección, declara las suposiciones y elige una dirección coherente.
+
+### Marca conservada y dirección resuelta
+
+Conservar logo, paleta, identidad oscura o stack fija restricciones; no resuelve la dirección de arte. Para usar el recorrido de dirección cerrada deben estar claros composición, lenguaje tipográfico, material visual, jerarquía y comportamiento, mediante una referencia o decisiones observables. Si faltan, trabaja esa dirección en el alcance afectado.
+
+Un pedido nuevo de lenguaje, protagonismo o material visual reabre las decisiones correspondientes, aunque la marca se conserve. No reinicies todo el descubrimiento si el usuario ya dio el nuevo brief: concrétalo, declara las decisiones de implementación y desarrolla lo pedido.
 
 ## 2. Contrato visual: bloqueos por defecto
 
@@ -64,6 +72,7 @@ Esta tabla es la fuente de verdad de los bloqueos. Se aplica a propuestas, imág
 ### Excepciones y función
 
 - Una petición explícita puede habilitar un recurso, con alcance concreto. Registra recurso, ubicación y pedido que lo habilita. «Premium», «moderno», «editorial» o «como esta referencia» no anulan la tabla.
+- Un pedido explícito de hero animado, video con glitch o pieza audiovisual exige construir esa expresión en el alcance nombrado. Las transformaciones y transiciones necesarias de esa pieza no requieren una nueva consulta por cada efecto. Conserva los bloqueos independientes: el género cyberpunk por sí solo no habilita gradientes, Inter o varios CTAs.
 - Si una referencia elegida contiene un recurso bloqueado, explica cómo conservar su intención con otro tratamiento. Pregunta por una excepción solo si el conflicto impide cumplir una instrucción concreta.
 - Los labels de formularios, breadcrumbs, foco visible, subrayado convencional de enlaces y categorías funcionales son semántica, no eyebrows o énfasis ornamental.
 - Guardar, cancelar, editar o paginar son controles funcionales. La regla de un CTA no limita artificialmente las acciones necesarias de una aplicación.
@@ -103,6 +112,8 @@ La entrevista termina cuando se han trabajado las quince preguntas y están clar
 
 Tras la entrevista o ante una dirección ya definida, lee [dirección visual](references/visual-direction.md). Produce una ficha breve con objetivo, audiencia, acción principal, contenido, idea visual dominante, tipografía, color, imágenes, motion, prioridad mobile y excepciones explícitas. Separa decisiones del usuario de recomendaciones y suposiciones.
 
+Traduce los requisitos explícitos a un contrato positivo: pedido → resultado observable → evidencia que lo validará. Incluye el carácter visual y el protagonismo del material, además de las funciones. Un claim, una familia tipográfica o un color aislados no demuestran una dirección. Si el pedido exige una escena animada protagonista, un retrato fijo con variaciones mínimas no satisface ese contrato.
+
 Define `DESIGN_VARIANCE`, `MOTION_INTENSITY` y `VISUAL_DENSITY` según el caso y explica su efecto visible. Son controles de diseño, no pesos internos del modelo ni parámetros exactos de render. Una referencia elegida determina la composición por encima de esos controles.
 
 Cuando falten recursos concretos de composición, navegación, galerías o movimiento, consulta el [catálogo creativo heredado de Taste](references/creative-library.md). Conserva ese repertorio como inspiración contextual, con las técnicas bloqueadas separadas de las elegibles. El tablero de ocho estilos explora direcciones; este catálogo aporta soluciones dentro de una dirección.
@@ -137,19 +148,29 @@ Crea jerarquía con espaciado, agrupación y tipografía antes de añadir superf
 
 Cuando se añada o cambie movimiento, lee [motion](references/motion.md). Selecciona el motor existente o la herramienta mínima necesaria y conserva el comportamiento funcional sin animación.
 
+Cuando el hero o una demostración animada definan el pedido, construye y revisa primero esa pieza con sus medios reales, tipografía, CTA y encuadre. Observa la secuencia completa a velocidad normal en el viewport objetivo antes de extender esa dirección al resto de la superficie. No requiere una aprobación humana adicional si el usuario ya delegó la implementación; requiere una evaluación honesta contra el brief. Corrige los desvíos materiales antes de multiplicarlos en otras secciones.
+
+Respeta el material visual rechazado: si se descarta una imagen base, revisa también sus derivados y reutilizaciones en cards u otras piezas del alcance. Elige muestras variadas por lo que deben demostrar, sin repetir un asset por comodidad ni inventar resultados que el producto no produce.
+
 ## 6. Verificar y entregar
 
 Toda implementación visual requiere [verificación responsive y mobile](references/mobile-qa.md). Inspecciona el render en un navegador disponible y recorre el flujo afectado. Mantén la superficie de navegador que el usuario haya pedido. Si faltan herramientas, entrega el trabajo posible y declara con precisión qué no se pudo verificar.
+
+Aplica la [aceptación del brief](references/acceptance.md) en tres revisiones independientes: **funcionamiento**, **fidelidad al brief** e **impacto temporal** cuando se solicita movimiento. Cada requisito explícito necesita su propio resultado. No promedies las revisiones ni compenses un fallo expresivo con orden, usabilidad o compilación. Una revisión pendiente permanece pendiente.
 
 Compara contra la referencia usando el mismo viewport, posición de scroll y estado. Revisa proporciones, saltos de línea, encuadre, distancias, imágenes, acciones y lectura mobile. El ancho total sin overflow no demuestra por sí solo buena UX mobile.
 
 Para revisar código nuevo o modificado, usa el [auditor estático](references/source-audit.md) cuando haya Python 3 disponible. Detecta patrones de gradientes, Inter y bucles que necesitan contexto; no evalúa gusto, UX ni accesibilidad. Revisa sus hallazgos y realiza siempre la inspección visual.
 
+El resultado `0` del auditor, ausencia de overflow, un build correcto o fotogramas con píxeles distintos son evidencia técnica acotada. Ninguno aprueba por sí solo la identidad visual, el protagonismo, el ritmo o la transformación solicitados. Para motion protagonista debes observar reproducción real; una captura o un contador de frames no sustituyen esa evaluación.
+
 Antes de entregar, comprueba:
 
 - Los bloqueos se cumplen o tienen una excepción explícita y acotada.
 - Se reconoce la tarea principal y el contenido tiene una jerarquía deliberada.
+- Los rasgos visuales, el material protagonista y cada requisito explícito del brief están visibles en el resultado y tienen evidencia pertinente.
 - Los controles y estados afectados funcionan; no se presenta una animación como prueba de éxito real.
+- Si se pidió una demostración animada, la secuencia tiene transformación perceptible, ritmo y resolución; se observó completa en su encuadre real.
 - La composición y operación mobile se comprobaron en anchos representativos, límites de breakpoints y rangos intermedios.
 - Teclado, foco, contraste y movimiento reducido se revisaron donde corresponde.
 - El resultado conserva la dirección acordada y las decisiones aprobadas fuera del cambio.

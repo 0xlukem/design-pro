@@ -148,6 +148,8 @@ def audit(root, files, exceptions):
     unresolved = sum(not item['allowed'] for item in findings)
     return {
         'status': 'needs_review' if unresolved else 'no_unresolved_patterns',
+        'scope': 'static_source_patterns_only',
+        'creative_verdict': 'not_assessed',
         'files_scanned': len(files),
         'unresolved': unresolved,
         'exceptions_applied': len(applied),

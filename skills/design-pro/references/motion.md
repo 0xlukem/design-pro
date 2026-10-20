@@ -16,6 +16,26 @@ Describe cada animación importante con este contrato:
 
 Si no puedes describir el propósito, conserva la interfaz quieta. El movimiento debe terminar donde deja a la persona lista para continuar.
 
+El protagonismo expresivo es un propósito válido cuando forma parte del brief. No reduzcas ese pedido a un hover o a feedback de controles por considerar que toda animación debe ser utilitaria. Distingue una demostración conceptual de una salida real del producto y no atribuyas al producto transformaciones que no soporta.
+
+## Pieza protagonista y secuencia
+
+Cuando se pide un hero audiovisual, una escena totalmente animada o una demostración potente, define antes de extender el diseño:
+
+- **Material:** qué existe en la escena y qué assets se aceptaron o rechazaron.
+- **Transformación:** cambio de estructura, materia, forma o relación que la persona debe percibir.
+- **Secuencia:** estado inicial → desarrollo → cambio principal → resolución; el retorno también se diseña si la pieza se repite.
+- **Encuadre y lectura:** cuánto ocupa la pieza, qué se ve al entrar y cómo convive con el CTA y el título en cada superficie.
+- **Ritmo y amplitud:** tiempos de acción y lectura, variación suficiente para cumplir el brief y estabilidad donde se necesita actuar.
+
+Como ejemplo de estructura, una señal puede aparecer, reconstruirse, interrumpirse y resolver en una composición distinta. Elige las fases y su duración según el contenido; no impongas esta secuencia a todas las piezas.
+
+Implementa y observa primero el ciclo completo con el medio real. Si el brief exige transformación protagonista, variar ruido o tracking sobre la misma imagen no basta por el simple hecho de producir frames distintos. Lo mismo ocurre con un crossfade genérico entre estados cuando se pidió una transformación específica.
+
+Un loop expresamente solicitado puede tener narrativa y propósito. Registra su alcance y haz legible su progresión; conserva pausa, accesibilidad y adaptación al dispositivo. La regla contra bucles ornamentales no debe neutralizar una pieza audiovisual pedida explícitamente.
+
+Las cards o muestras deben demostrar lo que anuncian. Si prometen un comportamiento animado, una captura a un tiempo fijo no lo demuestra. Si la tarea solo requiere comparar apariencia estática, una muestra fija puede ser correcta: registra la diferencia sin convertir todas las cards en animaciones por obligación.
+
 ## Personalidad coherente
 
 Elige cualidades concretas según el producto: preciso, mecánico, pesado, elástico, delicado o enérgico. Define una familia breve de duraciones, recorridos y curvas. La masa percibida y la distancia informan el timing; ninguna curva de resorte es universalmente «premium».
@@ -78,6 +98,16 @@ Observa la secuencia completa: entrada, interrupción, repetición, salida y ret
 Una imagen no valida ritmo. Cuando el movimiento define la propuesta, ofrece una prueba interactiva corta con pausa y repetición; agrega scrub o velocidad reducida si ayudan a revisar. No generes un video o estudio costoso por defecto para un hover sencillo.
 
 Informa qué se observó y bajo qué condiciones. Si afirmas un objetivo de frames por segundo, acompáñalo con una medición del recorrido y dispositivo o entorno usado.
+
+### Impacto temporal independiente
+
+Evalúa a velocidad normal la lectura del cambio principal, amplitud, progresión, pausas y resolución. Revisa también primer encuadre, final, retorno y cambio de ejemplo. Un control Pause funcional verifica reproducción; no demuestra calidad de coreografía.
+
+Conserva una grabación o una referencia de reproducción observada, más fotogramas de las fases relevantes si ayudan a comparar. Una contact sheet comunica estructura, pero no sustituye mirar la secuencia en tiempo real. Si no puedes observar reproducción, el impacto queda pendiente; no lo apruebes a partir del código.
+
+Un límite programado de actualizaciones es una decisión, no una medición de FPS. Si el presupuesto de rendimiento obliga a cambiar el lenguaje o la fluidez, explica y resuelve ese conflicto; no reduzcas silenciosamente la expresión que define el pedido. Un tratamiento deliberado de pocos fotogramas puede ser válido si es la dirección elegida, no una excusa automática.
+
+Registra el resultado en la revisión temporal de [aceptación](acceptance.md). La diferencia de píxeles entre dos imágenes solo prueba cambio; debe acompañarse de la evaluación del brief y del ciclo completo.
 
 ## Referencias técnicas
 

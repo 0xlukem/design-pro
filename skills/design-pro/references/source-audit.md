@@ -26,7 +26,11 @@ El script conserva números de línea y omite comentarios de sintaxis común. No
 - Salida **1**: hay bloqueos o revisiones contextuales pendientes.
 - Salida **2**: error de entrada, lectura o configuración; no se completó la auditoría.
 
+El JSON declara siempre `scope: "static_source_patterns_only"` y `creative_verdict: "not_assessed"`. Llegar de muchos hallazgos a cero solo cierra esa revisión de patrones. No habilita a declarar que el brief, la identidad o la animación quedaron logrados.
+
 No detecta semánticamente eyebrows, copy genérico, cards de relleno, CTAs competidores, jerarquía, contraste, recortes, comportamiento ni calidad del movimiento. Eso requiere revisar el render y recorrer la experiencia.
+
+Conserva sus resultados como higiene de fuente y usa las revisiones separadas de [aceptación](acceptance.md) para el cierre del trabajo. No promedies el recuento del auditor con una valoración visual o temporal ni elimines un efecto expresamente pedido solo para reducir DP003: revisa y registra el alcance de la petición.
 
 ## Excepciones acotadas
 

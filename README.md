@@ -2,6 +2,8 @@
 
 Skill para diseñar, construir y revisar interfaces web con identidad, UX clara y mobile comprobado. Incluye una entrevista creativa, controles de dirección y bloqueos explícitos contra los clichés habituales de las interfaces generadas por IA.
 
+La versión 1.2 añade un contrato positivo del brief y revisiones independientes de funcionamiento, fidelidad visual e impacto temporal. Conservar una paleta no resuelve la dirección de arte; un auditor sin hallazgos tampoco aprueba el resultado creativo.
+
 Conserva los tres controles y el catálogo creativo de [Taste Skill](https://github.com/Leonxlnx/taste-skill), y los integra en un flujo propio. Una técnica del catálogo puede ser una referencia sin estar habilitada por defecto.
 
 Las instrucciones están en español. El agente responde en el idioma de la persona que la usa. El paquete comparte el mismo núcleo para Claude Code y Codex y no depende de otra skill, un plugin determinado ni un framework específico.
@@ -52,10 +54,10 @@ Conservá la composición y el espaciado ya elegidos.
 
 1. **Reconoce el alcance.** Separa creación, rediseño abierto, dirección elegida, ajuste puntual y auditoría.
 2. **Entrevista integrada.** Para proyectos nuevos o rediseños abiertos, hace al menos 15 preguntas sustantivas en rondas de 3 a 5. Las repreguntas dependen de las respuestas. Un ajuste puntual no reinicia la entrevista.
-3. **Dirección visual.** Define objetivo, audiencia, tarea, composición, tipografía, color, imágenes, motion y prioridad mobile.
+3. **Dirección visual.** Distingue marca conservada de dirección resuelta y traduce cada requisito a un resultado observable de composición, tipografía, material, motion y encuadre. Landing y editor pueden necesitar perfiles distintos.
 4. **Referencias opcionales.** Si se piden al comienzo, prepara temprano un tablero de ocho direcciones con el mismo brief. Al cerrar la dirección puede generar una referencia detallada de desktop y mobile.
-5. **Implementación contextual.** Reutiliza el stack, los componentes y los tokens existentes; diseña los estados y la recuperación que el producto necesita.
-6. **Verificación.** Revisa el render y la operación, los rangos de pantalla afectados y los límites de los breakpoints. Declara qué se comprobó y qué queda pendiente.
+5. **Implementación contextual.** Reutiliza el stack, los componentes y los tokens existentes. Si una escena animada define el pedido, construye y observa primero esa pieza antes de extender su dirección. Conserva los estados y la recuperación que el producto necesita.
+6. **Verificación independiente.** Revisa funcionamiento, fidelidad al brief e impacto temporal por separado. No compensa una dirección equivocada con usabilidad, compilación o ausencia de overflow. Declara fallos y pendientes con evidencia.
 
 El usuario puede pedir explícitamente saltar la entrevista o delegar las decisiones. La generación de imágenes requiere una herramienta disponible: la skill no incluye un servicio de imágenes ni una API key.
 
@@ -106,6 +108,18 @@ Detecta sintaxis habitual de gradientes (`DP001`), uso de Inter (`DP002`) y bucl
 
 Consultá [alcance, códigos de salida y excepciones](skills/design-pro/references/source-audit.md).
 
+## Aceptación del brief
+
+La [guía de aceptación](skills/design-pro/references/acceptance.md) exige un resultado por cada requisito explícito. Para movimiento protagonista requiere observar la secuencia completa: transformación, ritmo, amplitud y resolución. Píxeles distintos o un control Pause no demuestran por sí solos ese impacto.
+
+Para una revisión amplia, un informe JSON puede comprobarse con:
+
+```sh
+python3 skills/design-pro/scripts/check_acceptance.py /ruta/review.json --root /ruta/al/proyecto
+```
+
+Este script solo comprueba coherencia del registro y tipos de evidencia. Mantiene abiertas las revisiones fallidas, ausentes o sin evidencia adecuada; el resultado del auditor estático es informativo y no puede compensarlas. No observa videos ni certifica calidad estética. Un informe con todas sus declaraciones y referencias coherentes queda `ready_for_review`, no aprobado automáticamente.
+
 ## Desarrollo y comprobaciones
 
 Las pruebas no necesitan instalar dependencias:
@@ -114,7 +128,7 @@ Las pruebas no necesitan instalar dependencias:
 python3 -m unittest discover -s tests -v
 ```
 
-La versión inicial se comprobó con validación de formato, enlaces locales, integridad del paquete y 11 pruebas del auditor. También se revisaron respuestas iniciales en tres escenarios de uso. Eso no equivale a probar un flujo completo con imágenes y navegador dentro de ambos asistentes.
+La suite cubre el auditor y la coherencia de aceptación, incluida la regresión de una interfaz que pasa controles técnicos pero falla el brief expresivo. Las comprobaciones de formato, enlaces, integridad y respuestas de ensayo complementan esa suite. No equivalen a probar un flujo completo con imágenes y navegador dentro de ambos asistentes ni a certificar calidad creativa.
 
 ```text
 design-pro/
@@ -131,10 +145,16 @@ design-pro/
 │       │   ├── creative-library.md
 │       │   ├── ux.md
 │       │   ├── motion.md
+│       │   ├── acceptance.md
 │       │   ├── mobile-qa.md
 │       │   └── source-audit.md
-│       └── scripts/audit_ui.py
-└── tests/test_audit_ui.py
+│       └── scripts/
+│           ├── audit_ui.py
+│           └── check_acceptance.py
+└── tests/
+    ├── fixtures/expressive_brief_regression.json
+    ├── test_audit_ui.py
+    └── test_acceptance.py
 ```
 
 ## Origen y licencia

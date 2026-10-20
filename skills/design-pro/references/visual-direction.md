@@ -9,6 +9,8 @@ Devuelve una ficha que permita tomar decisiones durante el trabajo. Adapta su lo
 | Campo | Debe resolver |
 | --- | --- |
 | Producto, audiencia y tarea | Qué usa la persona, para qué y en qué contexto. |
+| Superficie | Landing promocional, editor, catálogo o componente; qué función cumple cada una dentro de la misma marca. |
+| Restricciones conservadas | Logo, paleta, contenido o integraciones que se mantienen; no confundirlas con una dirección ya resuelta. |
 | Acción y jerarquía | Qué se reconoce primero, qué necesita entender y qué hace después. |
 | Contenido | Qué existe realmente, qué falta y qué simulaciones se acordaron. |
 | Idea visual | Una frase concreta que describa la relación entre contenido y composición. |
@@ -19,6 +21,31 @@ Devuelve una ficha que permita tomar decisiones durante el trabajo. Adapta su lo
 | Procedencia | Decisiones del usuario, recomendaciones, suposiciones, origen de los valores y excepciones expresas. |
 
 Una idea como «archivo de piezas con índice lateral y fotografía protagonista» orienta decisiones. Adjetivos como «premium, moderno y limpio» necesitan concretarse antes de guiar una implementación.
+
+## Contrato positivo y observables
+
+Para cada requisito que determina el resultado, registra:
+
+| Pedido | Decisión observable | Evidencia de cumplimiento |
+| --- | --- | --- |
+| Composición o protagonismo | Qué elemento domina, su relación con el texto y cómo entra en el primer encuadre. | Render en el viewport donde se usará la superficie. |
+| Lenguaje tipográfico | Construcción de las letras, anchura, peso, ritmo y relación con el contenido. | Texto real en la composición, no el nombre de una fuente. |
+| Material visual | Qué imagen, escena, medio o geometría se muestra y por qué representa el producto o la dirección. | Asset real o escena renderizada; procedencia y función claras. |
+| Paleta y materia | Contraste, superficies, textura y profundidad compatibles con los bloqueos. | Resultado integrado, no una muestra de color aislada. |
+| Movimiento solicitado | Qué cambia, en qué orden, con qué amplitud y dónde resuelve. | Reproducción completa; fotogramas clave como apoyo. |
+| UX y acción principal | Qué se puede hacer y cómo se reconoce el resultado. | Recorrido de la acción y su recuperación relevante. |
+
+«Conservar oscuro» solo completa parte de paleta. «Cyberpunk» o «hacker» requieren una combinación coherente de composición, tipografía, material y comportamiento. Negro, verde, mayúsculas y un claim temático no son una prueba suficiente de ese lenguaje.
+
+Cuando el usuario pide una pieza etérea, extraña o audiovisual, propone y concreta cómo se percibirá: por ejemplo, geometría que pierde y recupera estructura, cambios de materia, capas con profundidad o una reconstrucción visible. Son posibilidades según el brief; no una receta para todas las marcas ni permiso implícito para adornos bloqueados.
+
+La hipótesis debe ser refutable: describe qué se verá y qué resultado quedaría corto. Si se pidió una animación protagonista, una imagen fija con pequeñas interferencias puede fallar aunque el render cambie algunos píxeles. Si una imagen fue rechazada, su reutilización en una card tampoco satisface la corrección.
+
+## Superficies de una misma marca
+
+Una landing necesita expresar el valor y puede usar una pieza audiovisual central. Un editor necesita permitir trabajo repetido, con controles estables. Un catálogo necesita muestras comparables. Mantén coherencia de marca y adapta composición, densidad y motion a esas funciones.
+
+Define la pieza protagonista y compruébala antes de extender el lenguaje a las demás secciones. Si el hero no comunica la dirección, repetir su fuente, paleta y asset en todo el sitio amplifica el problema.
 
 La ficha puede vivir en la conversación. Guárdala en el proyecto si es parte de lo pedido o el trabajo necesita un documento persistente; no crees documentación auxiliar para cada ajuste.
 
@@ -33,6 +60,8 @@ Los valores iniciales están definidos en `SKILL.md`; ese es el único lugar don
 | `VISUAL_DENSITY` | Pocas unidades, ancho de lectura controlado y separación generosa. | Lectura cotidiana equilibrada y agrupación por tarea. | Información frecuente y compacta, filas o columnas precisas y controles que conservan legibilidad. |
 
 La alta variación no obliga a usar masonry, superposiciones ni espacios vacíos gigantes. La alta intensidad no habilita adornos bloqueados ni bucles. La alta densidad no justifica controles diminutos. Registra la razón de cada elección, no una precisión numérica ficticia.
+
+Intensidad e impacto son distintos. Un efecto mínimo puede puntuar alto por ocurrir constantemente y seguir sin cumplir una transformación protagonista. Justifica los valores por el resultado observable y distingue el perfil del hero del de una superficie de trabajo.
 
 En el tablero A–H, cada dirección puede explorar un perfil distinto; anota sus diferencias cuando ayuden a elegir. En la dirección seleccionada, conserva un perfil único y adapta su expresión a cada dispositivo: mobile no hereda superposiciones que impidan operar.
 
@@ -99,5 +128,7 @@ Usa estos criterios de aceptación:
 - La jerarquía sigue funcionando con texto real y al pasar a mobile.
 - Los espacios, alineaciones, saltos, recortes y estados muestran intención y coherencia.
 - El resultado respeta la referencia y las correcciones ya acordadas.
+
+Comprueba cada pedido explícito mediante la revisión independiente de [aceptación](acceptance.md). Los bloqueos respetados y una pantalla ordenada no compensan un lenguaje visual equivocado.
 
 Si alguien dice «no me convence», localiza la dimensión afectada antes de regenerar todo. En una mezcla de referencias, elige una dirección dominante y explica cómo se integrará el gesto secundario.
