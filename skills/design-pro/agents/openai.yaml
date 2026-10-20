@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Pro"
+  short_description: "Interfaces con identidad, UX y mobile verificados"
+  default_prompt: "Usá $design-pro para definir y construir esta interfaz con una dirección propia y sin clichés de IA."
