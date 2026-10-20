@@ -1,66 +1,66 @@
-# UX: de la tarea al comportamiento
+# UX: from task to behavior
 
-Lee este documento al diseñar, implementar o auditar un flujo. Ajusta la profundidad a la tarea; un cambio de espaciado no requiere rediseñar la navegación.
+Read this document when designing, implementing, or auditing a flow. Match the depth to the task; a spacing adjustment does not require redesigning navigation.
 
-## Tarea y jerarquía
+## Task and hierarchy
 
-Describe quién llega, qué necesita, qué información requiere antes de actuar y cómo reconoce el resultado. Elige una prioridad por pantalla o bloque de decisión. Las acciones de apoyo tienen menor peso visual, sin perder accesibilidad.
+Describe who arrives, what they need, what information they require before acting, and how they recognize the result. Choose one priority per screen or decision block. Supporting actions have less visual weight while remaining accessible.
 
-Organiza según frecuencia, secuencia y significado. Usa divulgación progresiva cuando la complejidad pueda esperar. Evita esconder información imprescindible detrás de interacción exploratoria. Conserva términos y patrones reconocibles en navegación, filtros, búsqueda y edición.
+Organize by frequency, sequence, and meaning. Use progressive disclosure when complexity can wait. Avoid hiding essential information behind exploratory interaction. Preserve recognizable terms and patterns in navigation, filtering, search, and editing.
 
-Prueba la lectura rápida sobre el render: qué estoy viendo, para qué sirve y qué puedo hacer. Si depende de explicar verbalmente la pantalla, revisa el contenido y la jerarquía.
+Test a quick reading of the render: what am I looking at, what is it for, and what can I do? If the screen needs a verbal explanation, revise content and hierarchy.
 
-## Estados que corresponden al producto
+## States relevant to the product
 
-Para cada interacción afectada, considera únicamente los estados que existen:
+For each affected interaction, consider only states that exist:
 
-| Estado | Criterio |
+| State | Criterion |
 | --- | --- |
-| Inicial | Ayuda a reconocer la tarea y comenzar. |
-| Carga | Explica la espera real; reserva espacio y conserva contexto útil. |
-| Vacío inicial | Indica qué falta y cómo empezar. |
-| Sin resultados | Conserva filtros o consulta y permite corregirlos. |
-| Error | Identifica el problema y ofrece una recuperación concreta. |
-| Éxito | Confirma un resultado que ocurrió, en el lugar pertinente. |
-| Deshabilitado | Explica el requisito cuando no resulta evidente. |
-| Selección o edición | Hace reconocible qué se afecta y cómo terminar o deshacer. |
+| Initial | Helps recognize the task and start. |
+| Loading | Explains a real wait; reserves space and preserves useful context. |
+| Initial empty state | Shows what is missing and how to begin. |
+| No results | Preserves filters or the query and allows correction. |
+| Error | Identifies the problem and offers concrete recovery. |
+| Success | Confirms an outcome that happened, in the relevant location. |
+| Disabled | Explains the prerequisite when it is not evident. |
+| Selection or editing | Makes the affected content recognizable and shows how to finish or undo. |
 
-No introduzcas loaders en operaciones instantáneas ni demoras artificiales para mostrar animaciones. Un skeleton solo sirve si representa una estructura esperada; un indicador breve y accesible puede ser mejor para una espera indeterminada.
+Do not introduce loaders for instant operations or artificial delays to display animations. A skeleton is useful only when it represents an expected structure; a brief, accessible indicator may be better for an indeterminate wait.
 
-En prototipos, declara qué estados son simulados y qué acciones no están conectadas. Una respuesta visual no demuestra persistencia ni ejecución real.
+In prototypes, disclose which states are simulated and which actions are not connected. A visual response does not establish persistence or real execution.
 
-## Formularios y recuperación
+## Forms and recovery
 
-- Usa labels visibles y asociados; el placeholder no los sustituye.
-- Agrupa campos relacionados, señala obligatoriedad y explica requisitos antes del error.
-- Usa tipos de input, autocomplete e inputmode adecuados al dato.
-- Valida en el momento útil, conserva valores y coloca el error junto al campo.
-- Conecta mensajes y campos para tecnologías de asistencia; evita depender solo de color.
-- Impide envíos duplicados durante una operación real y permite reintentar cuando falla.
-- Mantén la persona en contexto al completar o corregir. Considera deshacer para acciones reversibles y protección proporcionada para acciones destructivas.
+- Use visible, associated labels; placeholders do not replace them.
+- Group related fields, identify required information, and explain requirements before an error.
+- Use input types, autocomplete, and inputmode suited to the data.
+- Validate at a useful moment, preserve values, and place errors next to the field.
+- Associate messages and fields for assistive technologies; avoid relying only on color.
+- Prevent duplicate submissions during a real operation and allow retry when it fails.
+- Keep the person in context when completing or correcting. Consider undo for reversible actions and proportionate protection for destructive ones.
 
-No añadas campos que el producto no necesita. En flujos por pasos, permite reconocer avance y volver sin perder datos cuando sea viable.
+Do not add fields the product does not need. In stepped flows, make progress recognizable and allow returning without losing data when feasible.
 
-## Accesibilidad y previsibilidad
+## Accessibility and predictability
 
-Usa HTML semántico antes de recrear controles. Revisa nombres accesibles, orden de tabulación, activación por teclado, foco visible y contraste de texto y controles. Comprueba el contraste con una herramienta o cálculo; mirar el color no lo verifica.
+Use semantic HTML before recreating controls. Review accessible names, tab order, keyboard activation, visible focus, and text/control contrast. Check contrast with a tool or calculation; looking at the color does not verify it.
 
-Las imágenes informativas necesitan texto alternativo basado en su contenido observado. Reserva `alt=""` para decoración real. Si todavía falta la imagen, registra esa integración como pendiente; no presentes un alt vacío de una fotografía protagonista como accesibilidad resuelta.
+Informative images need alternative text based on their observed content. Reserve `alt=""` for actual decoration. If an image is still missing, record that integration as pending; do not present empty alt text on a prominent photograph as resolved accessibility.
 
-El orden de lectura y foco debe conservar sentido en todas las composiciones. No alteres solo el orden visual de forma que teclado y lector de pantalla recorran otra historia.
+Reading and focus order must remain meaningful in every composition. Do not change visual order alone so keyboard and screen-reader users encounter a different story.
 
-En diálogos, lleva el foco al contexto adecuado, mantenlo dentro de un modal real y restáuralo al cerrar. Proporciona salida por teclado y un control visible. Evita que banners, barras fijas o teclado oculten el elemento activo.
+In dialogs, move focus to the appropriate context, contain it within a real modal, and restore it on close. Provide keyboard dismissal and a visible control. Prevent banners, fixed bars, or the keyboard from hiding the active element.
 
-Los cambios de estado importantes deben percibirse sin exigir mirar un único punto o interpretar una animación. Usa anuncios accesibles proporcionados cuando el cambio no se comunica de otro modo.
+Important state changes must be perceivable without watching one point or interpreting an animation. Use proportionate accessible announcements when the change is not otherwise communicated.
 
-## Contenido y complejidad
+## Content and complexity
 
-Usa verbos concretos para acciones y los mismos nombres para las mismas entidades. Los mensajes de error deben responder qué pasó y qué se puede hacer. Evita lenguaje espacial como «a la izquierda» si la composición cambia en mobile.
+Use concrete verbs for actions and consistent names for the same entities. Error messages should explain what happened and what can be done. Avoid spatial language such as “on the left” when the mobile composition changes.
 
-Prueba títulos y nombres largos, acentos, distintas cantidades, listas numerosas, listas vacías y contenido faltante. La traducción o el texto real no deberían desarmar una composición preparada solo para frases cortas.
+Test long titles and names, accented characters, different quantities, large lists, empty lists, and missing content. Translation or real text should not dismantle a composition prepared only for short phrases.
 
-No añadas búsqueda, tabs, filtros, notificaciones, dark mode o secciones por parecer propios de una aplicación. Cada elemento necesita una tarea o un requisito que lo justifique.
+Do not add search, tabs, filters, notifications, dark mode, or sections merely because they look typical of an application. Each element needs a task or requirement that justifies it.
 
-## Evidencia de cierre
+## Completion evidence
 
-Recorre la tarea principal y al menos su recuperación relevante. Informa qué estados se observaron, cuáles se simularon y qué no se pudo ejecutar. Una captura prueba apariencia; el recorrido aporta evidencia del comportamiento.
+Walk through the main task and at least its relevant recovery. Report observed states, simulated states, and what could not be executed. A screenshot establishes appearance; the walkthrough provides behavioral evidence.

@@ -1,33 +1,33 @@
 {
   "schema_version": 1,
-  "scope": "Caso de regresión anonimizado: hero de una herramienta visual",
+  "scope": "Anonymized regression case: visual tool hero",
   "motion_required": true,
   "hygiene": {"source_audit_unresolved": 0, "build": "pass", "overflow": false, "animatedFramesDiffer": true},
   "checks": [
     {
       "id": "F1",
       "gate": "functional",
-      "request": "Acceso al editor desde el hero",
-      "expected": "El CTA abre el editor",
-      "observed": "En el caso de prueba, el recorrido funciona",
+      "request": "Editor access from the hero",
+      "expected": "The CTA opens the editor",
+      "observed": "The walkthrough works in the test case",
       "status": "pass",
-      "evidence": [{"kind": "interaction", "ref": "http://localhost:5173/#editor", "note": "Registro modelado del recorrido; no es una prueba ejecutada por este fixture"}]
+      "evidence": [{"kind": "interaction", "ref": "http://localhost:5173/#editor", "note": "Modeled walkthrough record; not a test executed by this fixture"}]
     },
     {
       "id": "B1",
       "gate": "brief",
-      "request": "Hero expresivo con carácter hacker y demostración protagonista",
-      "expected": "Composición, tipografía y material construyen la dirección y el medio domina el encuadre",
-      "observed": "Texto alusivo y comparador de retrato fijo; el medio pierde protagonismo en ventana estrecha",
+      "request": "Expressive hero with hacker character and a prominent demonstration",
+      "expected": "Composition, typography, and material establish direction and the media dominates the frame",
+      "observed": "Thematic text and fixed-portrait comparison; media loses prominence in a narrow window",
       "status": "fail",
       "evidence": []
     },
     {
       "id": "M1",
       "gate": "motion",
-      "request": "Animación protagonista con transformación perceptible",
-      "expected": "Secuencia de estados, cambio principal y resolución legible",
-      "observed": "Interferencia mínima sobre la misma imagen, sin secuencia reconocible; variar píxeles no satisface el pedido",
+      "request": "Prominent animation with perceptible transformation",
+      "expected": "Sequence of states, main change, and legible resolution",
+      "observed": "Minimal interference on the same image, without a recognizable sequence; varying pixels does not fulfill the request",
       "status": "fail",
       "evidence": []
     }

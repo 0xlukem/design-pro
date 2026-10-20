@@ -1,136 +1,136 @@
-# Dirección visual y referencias
+# Visual direction and references
 
-Lee este documento para definir una dirección, producir referencias o evaluar si una propuesta tiene identidad. Los bloqueos y sus excepciones viven únicamente en la sección 2 de `SKILL.md` y siguen vigentes en toda exploración.
+Read this document to define a direction, produce references, or evaluate whether a proposal has an identity. Restrictions and exceptions live exclusively in section 2 of `SKILL.md` and remain active throughout exploration.
 
-## Ficha de dirección
+## Direction brief
 
-Devuelve una ficha que permita tomar decisiones durante el trabajo. Adapta su longitud al proyecto:
+Return a brief that supports decisions throughout the work. Adapt its length to the project:
 
-| Campo | Debe resolver |
+| Field | What it must resolve |
 | --- | --- |
-| Producto, audiencia y tarea | Qué usa la persona, para qué y en qué contexto. |
-| Superficie | Landing promocional, editor, catálogo o componente; qué función cumple cada una dentro de la misma marca. |
-| Restricciones conservadas | Logo, paleta, contenido o integraciones que se mantienen; no confundirlas con una dirección ya resuelta. |
-| Acción y jerarquía | Qué se reconoce primero, qué necesita entender y qué hace después. |
-| Contenido | Qué existe realmente, qué falta y qué simulaciones se acordaron. |
-| Idea visual | Una frase concreta que describa la relación entre contenido y composición. |
-| Sistema | Familias tipográficas disponibles, escala, paleta plana, espaciado, superficies e imágenes. |
-| Comportamiento | Qué explica el movimiento y dónde permanece quieta la interfaz. |
-| Mobile | Prioridad de lectura, navegación y acción en pantalla pequeña. |
-| Controles | Valores efectivos de `DESIGN_VARIANCE`, `MOTION_INTENSITY` y `VISUAL_DENSITY`, con su efecto visible. |
-| Procedencia | Decisiones del usuario, recomendaciones, suposiciones, origen de los valores y excepciones expresas. |
+| Product, audience, and task | What the person uses, for what purpose, and in which context. |
+| Surface | Promotional landing page, editor, catalog, or component; each one's function within the same brand. |
+| Preserved constraints | Logo, palette, content, or integrations that stay; do not confuse them with a resolved direction. |
+| Action and hierarchy | What is recognized first, what needs to be understood, and what happens next. |
+| Content | What actually exists, what is missing, and which simulations were agreed. |
+| Visual idea | A concrete sentence describing the relationship between content and composition. |
+| System | Available type families, scale, flat palette, spacing, surfaces, and imagery. |
+| Behavior | What motion explains and where the interface stays still. |
+| Mobile | Reading, navigation, and action priorities on a small screen. |
+| Controls | Effective `DESIGN_VARIANCE`, `MOTION_INTENSITY`, and `VISUAL_DENSITY` values, with their visible effects. |
+| Provenance | User decisions, recommendations, assumptions, origins of values, and explicit exceptions. |
 
-Una idea como «archivo de piezas con índice lateral y fotografía protagonista» orienta decisiones. Adjetivos como «premium, moderno y limpio» necesitan concretarse antes de guiar una implementación.
+An idea such as “a collection archive with a side index and prominent photography” guides decisions. Adjectives such as “premium, modern, and clean” need to become concrete before guiding implementation.
 
-## Contrato positivo y observables
+## Positive contract and observable outcomes
 
-Para cada requisito que determina el resultado, registra:
+For each requirement that determines the result, record:
 
-| Pedido | Decisión observable | Evidencia de cumplimiento |
+| Request | Observable decision | Evidence of fulfillment |
 | --- | --- | --- |
-| Composición o protagonismo | Qué elemento domina, su relación con el texto y cómo entra en el primer encuadre. | Render en el viewport donde se usará la superficie. |
-| Lenguaje tipográfico | Construcción de las letras, anchura, peso, ritmo y relación con el contenido. | Texto real en la composición, no el nombre de una fuente. |
-| Material visual | Qué imagen, escena, medio o geometría se muestra y por qué representa el producto o la dirección. | Asset real o escena renderizada; procedencia y función claras. |
-| Paleta y materia | Contraste, superficies, textura y profundidad compatibles con los bloqueos. | Resultado integrado, no una muestra de color aislada. |
-| Movimiento solicitado | Qué cambia, en qué orden, con qué amplitud y dónde resuelve. | Reproducción completa; fotogramas clave como apoyo. |
-| UX y acción principal | Qué se puede hacer y cómo se reconoce el resultado. | Recorrido de la acción y su recuperación relevante. |
+| Composition or prominence | Which element dominates, its relationship to text, and how it enters the initial frame. | Rendering in the viewport where the surface will be used. |
+| Typographic language | Letter construction, width, weight, rhythm, and relationship to content. | Real text in the composition, not the name of a font. |
+| Visual material | Which image, scene, medium, or geometry appears and why it represents the product or direction. | Actual asset or rendered scene; clear provenance and function. |
+| Palette and materiality | Contrast, surfaces, texture, and depth compatible with restrictions. | Integrated result, not an isolated color swatch. |
+| Requested motion | What changes, in which order, with what amplitude, and where it resolves. | Full playback; key frames as supporting material. |
+| UX and primary action | What can be done and how its result is recognized. | Action walkthrough and relevant recovery. |
 
-«Conservar oscuro» solo completa parte de paleta. «Cyberpunk» o «hacker» requieren una combinación coherente de composición, tipografía, material y comportamiento. Negro, verde, mayúsculas y un claim temático no son una prueba suficiente de ese lenguaje.
+“Keep it dark” resolves only part of the palette. “Cyberpunk” or “hacker” requires a coherent combination of composition, typography, material, and behavior. Black, green, uppercase letters, and a thematic claim do not establish that language.
 
-Cuando el usuario pide una pieza etérea, extraña o audiovisual, propone y concreta cómo se percibirá: por ejemplo, geometría que pierde y recupera estructura, cambios de materia, capas con profundidad o una reconstrucción visible. Son posibilidades según el brief; no una receta para todas las marcas ni permiso implícito para adornos bloqueados.
+When the user requests an ethereal, unusual, or audiovisual piece, propose and specify how it will be perceived: for example, geometry losing and regaining structure, material changes, layers with depth, or visible reconstruction. These are possibilities according to the brief, not a recipe for every brand or implicit permission for blocked decoration.
 
-La hipótesis debe ser refutable: describe qué se verá y qué resultado quedaría corto. Si se pidió una animación protagonista, una imagen fija con pequeñas interferencias puede fallar aunque el render cambie algunos píxeles. Si una imagen fue rechazada, su reutilización en una card tampoco satisface la corrección.
+Make the hypothesis refutable: describe what will be visible and which result would fall short. If prominent animation was requested, a fixed image with minor interference can fail even when rendering changes some pixels. If an image was rejected, reusing it in a card does not satisfy the correction either.
 
-## Superficies de una misma marca
+## Surfaces within one brand
 
-Una landing necesita expresar el valor y puede usar una pieza audiovisual central. Un editor necesita permitir trabajo repetido, con controles estables. Un catálogo necesita muestras comparables. Mantén coherencia de marca y adapta composición, densidad y motion a esas funciones.
+A landing page needs to express value and may use a central audiovisual piece. An editor needs to support repeated work with stable controls. A catalog needs comparable samples. Keep brand coherence and adapt composition, density, and motion to those functions.
 
-Define la pieza protagonista y compruébala antes de extender el lenguaje a las demás secciones. Si el hero no comunica la dirección, repetir su fuente, paleta y asset en todo el sitio amplifica el problema.
+Define the prominent piece and check it before extending the language to other sections. If the hero does not communicate the direction, repeating its font, palette, and asset across the site amplifies the problem.
 
-La ficha puede vivir en la conversación. Guárdala en el proyecto si es parte de lo pedido o el trabajo necesita un documento persistente; no crees documentación auxiliar para cada ajuste.
+The brief may live in the conversation. Save it in the project if that is part of the request or the work needs a persistent document; do not create auxiliary documentation for every adjustment.
 
-## Controles de dirección y sus niveles
+## Direction controls and levels
 
-Los valores iniciales están definidos en `SKILL.md`; ese es el único lugar donde se configura el punto de partida. Conserva los tres controles explícitos en la ficha, aunque el usuario responda en lenguaje natural. Ajusta los valores efectivos al producto y registra si provienen del brief, una referencia, una elección del usuario o el perfil inicial.
+Starting values are defined in `SKILL.md`; that is the only place that configures the starting point. Keep all three explicit controls in the brief even when the user answers in natural language. Adjust effective values to the product and record whether they come from the brief, a reference, a user choice, or the starting profile.
 
 | Control | 1–3 | 4–7 | 8–10 |
 | --- | --- | --- | --- |
-| `DESIGN_VARIANCE` | Retícula estable, alineaciones consistentes y proporciones repetidas. | Desplazamientos controlados, cambios de proporción, ritmo entre texto e imágenes. | Composición expresiva: masas de distinto tamaño, asimetría marcada y secuencia visual propia. |
-| `MOTION_INTENSITY` | Feedback inmediato y transiciones discretas, normalmente sin entradas automáticas. | Continuidad espacial, cambios de estado perceptibles y un gesto expresivo acotado. | Coreografía protagonista, transiciones espaciales o secuencias ligadas al contenido y justificadas por el producto. |
-| `VISUAL_DENSITY` | Pocas unidades, ancho de lectura controlado y separación generosa. | Lectura cotidiana equilibrada y agrupación por tarea. | Información frecuente y compacta, filas o columnas precisas y controles que conservan legibilidad. |
+| `DESIGN_VARIANCE` | Stable grids, consistent alignments, and repeated proportions. | Controlled offsets, changes in proportion, and rhythm between text and images. | Expressive composition: differently sized masses, marked asymmetry, and a distinct visual sequence. |
+| `MOTION_INTENSITY` | Immediate feedback and discreet transitions, usually without automatic entrances. | Spatial continuity, perceptible state changes, and a bounded expressive gesture. | Prominent choreography, spatial transitions, or sequences tied to content and justified by the product. |
+| `VISUAL_DENSITY` | Few units, controlled reading width, and generous separation. | Balanced everyday reading and grouping by task. | Frequent, compact information, precise rows or columns, and controls that remain legible. |
 
-La alta variación no obliga a usar masonry, superposiciones ni espacios vacíos gigantes. La alta intensidad no habilita adornos bloqueados ni bucles. La alta densidad no justifica controles diminutos. Registra la razón de cada elección, no una precisión numérica ficticia.
+High variance does not require masonry, overlap, or huge empty spaces. High intensity does not enable blocked decoration or loops. High density does not justify tiny controls. Record the reason for each choice rather than fictitious numerical precision.
 
-Intensidad e impacto son distintos. Un efecto mínimo puede puntuar alto por ocurrir constantemente y seguir sin cumplir una transformación protagonista. Justifica los valores por el resultado observable y distingue el perfil del hero del de una superficie de trabajo.
+Intensity and impact are different. A minimal effect can score highly because it runs constantly while still failing to deliver a prominent transformation. Justify values through observable outcomes and distinguish the hero profile from a working surface's profile.
 
-En el tablero A–H, cada dirección puede explorar un perfil distinto; anota sus diferencias cuando ayuden a elegir. En la dirección seleccionada, conserva un perfil único y adapta su expresión a cada dispositivo: mobile no hereda superposiciones que impidan operar.
+In the A–H board, each direction can explore a different profile; record differences when they help selection. In the chosen direction, keep a coherent profile and adapt its expression to each device: mobile does not inherit overlaps that prevent operation.
 
-## Escala tipográfica y pesos
+## Type scale and weights
 
-Define una escala y papeles concretos en lugar de depender de «tipografía premium». Como referencias iniciales ajustables: cuerpo de 16 px relativos al tamaño raíz; texto largo de unas 45–65 letras por línea; títulos de 32–40 px en mobile y 48–64 px en desktop cuando el contenido lo admita. Son referencias de composición, no tamaños obligatorios para todos los productos.
+Define a scale and concrete roles instead of relying on “premium typography.” Adjustable starting references include body text at 16 px relative to root size, long text at roughly 45–65 characters per line, and headings at 32–40 px on mobile and 48–64 px on desktop when content allows. These are composition references, not mandatory sizes for every product.
 
-| Papel | Referencia de peso | Criterio |
+| Role | Weight reference | Criterion |
 | --- | --- | --- |
-| Texto de lectura | 400 | Mantener lectura cómoda y contraste suficiente. |
-| Labels y acciones | 500–600 | Diferenciar función sin convertir cada control en protagonista. |
-| Encabezados | 500–700 | Construir jerarquía junto con tamaño, espacio y proporción. |
-| Datos | Peso consistente y cifras tabulares cuando convenga | Facilitar comparación; monospace solo si sirve a la dirección. |
+| Reading text | 400 | Preserve comfortable reading and sufficient contrast. |
+| Labels and actions | 500–600 | Distinguish function without making every control prominent. |
+| Headings | 500–700 | Build hierarchy together with size, space, and proportion. |
+| Data | Consistent weight and tabular figures when useful | Support comparison; use monospace only if it serves the direction. |
 
-Comprueba qué pesos y caracteres ofrece la familia real. Una familia editorial puede resolver jerarquía con otros pesos; no fuerces negrita sintética ni uses una mezcla ornamental de estilos dentro de una palabra. Mantén los bloqueos de tipografía del núcleo.
+Check which weights and characters the actual family provides. An editorial family may resolve hierarchy with other weights; do not force synthetic bold or an ornamental mixture of styles within a word. Preserve the core typography restrictions.
 
-## Tablero de ocho direcciones
+## Eight-direction board
 
-Úsalo cuando se pidan referencias o una exploración de ocho estilos. Conserva producto, audiencia, contenido y acción principal para que la comparación tenga sentido.
+Use it when references or an eight-style exploration are requested. Keep product, audience, content, and primary action consistent so comparison is meaningful.
 
-Estas ocho familias siguen disponibles como punto de partida. Para ampliar o profundizar los estilos según el brief, consulta la [biblioteca de estilos y lenguajes visuales](style-library.md):
+These eight families remain available as a starting point. To broaden or deepen styles for the brief, consult the [style and visual language library](style-library.md):
 
-| Dirección | Decisión a explorar |
+| Direction | Decision to explore |
 | --- | --- |
-| Editorial tipográfica | Ritmo de lectura y tipografía como estructura. |
-| Utilitaria técnica | Densidad, precisión y operación repetida. |
-| Modernista cálida | Proporción, espacio y cercanía. |
-| Industrial | Estructura, señalización, contraste y materiales. |
-| Brutalismo sobrio | Jerarquía directa y composición deliberadamente cruda. |
-| Archivo cultural | Clasificación, índices y relaciones entre piezas. |
-| Fotográfica | Encuadre, secuencia de imágenes y diálogo con el texto. |
-| Lúdica geométrica | Forma, color plano y comportamiento expresivo. |
+| Editorial typography | Reading rhythm and typography as structure. |
+| Technical utility | Density, precision, and repeated operation. |
+| Warm modernism | Proportion, space, and approachability. |
+| Industrial | Structure, signage, contrast, and materials. |
+| Restrained brutalism | Direct hierarchy and deliberately raw composition. |
+| Cultural archive | Classification, indexes, and relationships between pieces. |
+| Photography | Framing, image sequencing, and dialogue with text. |
+| Playful geometry | Shape, flat color, and expressive behavior. |
 
-Adapta o reemplaza estas familias según el producto; no es una lista obligatoria para cada tablero. Las diferencias deben exceder paleta y fuente. Cada propuesta debe cambiar al menos una decisión estructural relevante: jerarquía, composición, uso de imágenes o forma de explorar el contenido.
+Adapt or replace these families for the product; this is not a mandatory list for every board. Differences must extend beyond palette and font. Each proposal should change at least one relevant structural decision: hierarchy, composition, imagery, or how content is explored.
 
-Para una imagen 4 × 2, reserva una celda coherente por dirección y acompaña el resultado con una leyenda A–H. Comprueba el tablero generado: ocho celdas distintas, correspondencia clara con la leyenda y cumplimiento de los bloqueos. Si una celda viola el brief, corrígela antes de ofrecerla como opción. La generación de imágenes puede producir texto imperfecto; no lo presentes como copy aprobado.
+For a 4 × 2 image, reserve a consistent cell per direction and accompany it with an A–H legend. Check the generated board: eight distinct cells, clear correspondence with the legend, and compliance with restrictions. If a cell violates the brief, correct it before offering it as an option. Image generation can produce imperfect text; do not present it as approved copy.
 
-Para referencias reales, inspecciona las pantallas antes de citarlas y enlaza su fuente. Explica qué se toma y qué se descarta. No atribuyas una propuesta generada a un producto real.
+For real references, inspect screens before citing them and link their sources. Explain what is adopted and what is discarded. Do not attribute a generated proposal to a real product.
 
-Elige después recursos del [catálogo de decisiones visuales](creative-library.md) por la tarea que resuelven. Una familia como «industrial» puede usar una ficha de producto, una comparación o una escena narrativa; no obliga a emplear un componente particular. Si combinas referencias, registra qué relación visual tomas de cada una y conserva una dirección dominante.
+Then select resources from the [visual decision catalog](creative-library.md) for the task they solve. A family such as “industrial” can use a product record, comparison, or narrative scene; it does not require a particular component. If combining references, record which visual relationship each contributes and preserve a dominant direction.
 
-## Prompt de generación adaptable
+## Adaptable generation prompt
 
-Adjunta las imágenes reales que tengas disponibles; no afirmes haberlas adjuntado cuando solo se proporcionó una descripción. Construye el prompt con:
+Attach the real images available to you; do not claim they were attached when only a description was provided. Build the prompt with:
 
-1. Producto, audiencia, tarea y contenido acordados.
-2. Tipo de resultado: tablero A–H o pantalla detallada de una dirección elegida.
-3. Dimensiones y relación de aspecto. Para pantalla detallada, define desktop y mobile por separado o en dos marcos claramente separados.
-4. Composición, tipografía, color, imágenes y densidad acordados.
-5. Todos los bloqueos aplicables de la sección 2 de `SKILL.md` y las excepciones expresas.
-6. Requisito de contenido legible, jerarquía clara y una acción principal; sin inventario de funcionalidades para llenar espacio.
+1. Agreed product, audience, task, and content.
+2. Output type: A–H board or detailed screen of a selected direction.
+3. Dimensions and aspect ratio. For a detailed screen, define desktop and mobile separately or in two clearly separated frames.
+4. Agreed composition, typography, color, imagery, and density.
+5. All applicable restrictions from section 2 of `SKILL.md` and explicit exceptions.
+6. Readable content, clear hierarchy, and one primary action; no invented feature inventory to fill space.
 
-Pide contenido de interfaz sin marco de dispositivo o chrome de navegador, salvo solicitud expresa. No estires una composición desktop para rellenar un marco mobile. Recompón según sus prioridades.
+Request interface content without a device frame or browser chrome unless expressly requested. Do not stretch a desktop composition to fill a mobile frame. Recompose for its priorities.
 
-Si faltan imágenes del producto, pregunta por su uso cuando sea decisivo o propone una dirección que pueda sostenerse con el material real. No sustituyas automáticamente imágenes pertinentes por fotos aleatorias o ilustraciones decorativas.
+If product imagery is missing, ask about its use when decisive or propose a direction supported by actual material. Do not automatically substitute random photographs or decorative illustrations for relevant imagery.
 
-## Evaluación visual y feedback
+## Visual evaluation and feedback
 
-Compara la referencia elegida con el render, no con una descripción de cómo debería verse. Revisa las relaciones entre elementos y el encuadre completo, además de los detalles aislados.
+Compare the selected reference with the render, not with a description of how it should look. Review relationships between elements and the full frame alongside isolated details.
 
-Usa estos criterios de aceptación:
+Use these acceptance criteria:
 
-- La pantalla comunica producto, tarea y siguiente paso sin una explicación externa.
-- La idea visual se reconoce en decisiones conectadas de tipografía, composición, imágenes y comportamiento.
-- La pieza se sostiene con su contenido específico; no depende de métricas o decoración de relleno.
-- La jerarquía sigue funcionando con texto real y al pasar a mobile.
-- Los espacios, alineaciones, saltos, recortes y estados muestran intención y coherencia.
-- El resultado respeta la referencia y las correcciones ya acordadas.
+- The screen communicates product, task, and next step without an external explanation.
+- The visual idea is recognizable through connected typography, composition, imagery, and behavior decisions.
+- The piece works with its specific content; it does not depend on filler metrics or decoration.
+- Hierarchy keeps working with real text and on mobile.
+- Spaces, alignments, line breaks, crops, and states show intent and coherence.
+- The result respects the reference and agreed corrections.
 
-Comprueba cada pedido explícito mediante la revisión independiente de [aceptación](acceptance.md). Los bloqueos respetados y una pantalla ordenada no compensan un lenguaje visual equivocado.
+Check every explicit request through the independent [acceptance](acceptance.md) review. Respected restrictions and an orderly screen cannot compensate for the wrong visual language.
 
-Si alguien dice «no me convence», localiza la dimensión afectada antes de regenerar todo. En una mezcla de referencias, elige una dirección dominante y explica cómo se integrará el gesto secundario.
+When someone says “this doesn't feel right,” locate the affected dimension before regenerating everything. In a reference mix, choose a dominant direction and explain how the secondary gesture will fit.

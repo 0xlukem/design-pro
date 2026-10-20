@@ -1,118 +1,118 @@
-# Motion con propósito
+# Motion with purpose
 
-Lee este documento cuando el pedido incluya movimiento o se modifiquen animaciones. Los bloqueos y excepciones están en `SKILL.md`; un nivel alto de intensidad no los desactiva.
+Read this document when a request includes movement or animations are modified. Restrictions and exceptions are in `SKILL.md`; a high intensity level does not disable them.
 
-## Diseñar el cambio
+## Design the change
 
-Describe cada animación importante con este contrato:
+Describe each important animation through this contract:
 
-| Campo | Pregunta |
+| Field | Question |
 | --- | --- |
-| Disparador | ¿Qué acción o cambio real la inicia? |
-| Propósito | ¿Explica relación, estado, foco o identidad? |
-| Transformación | ¿Qué cambia y qué permanece como ancla? |
-| Resolución | ¿En qué estado usable termina y cuándo? |
-| Alternativas | ¿Cómo funciona con touch, teclado y movimiento reducido? |
+| Trigger | Which action or real change starts it? |
+| Purpose | Does it explain relationship, state, focus, or identity? |
+| Transformation | What changes and what remains an anchor? |
+| Resolution | In which usable state does it end, and when? |
+| Alternatives | How does it work with touch, keyboard, and reduced motion? |
 
-Si no puedes describir el propósito, conserva la interfaz quieta. El movimiento debe terminar donde deja a la persona lista para continuar.
+If you cannot describe the purpose, keep the interface still. Motion should end where it leaves the person ready to continue.
 
-El protagonismo expresivo es un propósito válido cuando forma parte del brief. No reduzcas ese pedido a un hover o a feedback de controles por considerar que toda animación debe ser utilitaria. Distingue una demostración conceptual de una salida real del producto y no atribuyas al producto transformaciones que no soporta.
+Expressive prominence is a valid purpose when it is part of the brief. Do not reduce that request to hover or control feedback because every animation is presumed to be utilitarian. Distinguish a conceptual demonstration from a real product output, and do not attribute unsupported transformations to the product.
 
-## Pieza protagonista y secuencia
+## Prominent piece and sequence
 
-Cuando se pide un hero audiovisual, una escena totalmente animada o una demostración potente, define antes de extender el diseño:
+When an audiovisual hero, fully animated scene, or powerful demonstration is requested, define these before extending the design:
 
-- **Material:** qué existe en la escena y qué assets se aceptaron o rechazaron.
-- **Transformación:** cambio de estructura, materia, forma o relación que la persona debe percibir.
-- **Secuencia:** estado inicial → desarrollo → cambio principal → resolución; el retorno también se diseña si la pieza se repite.
-- **Encuadre y lectura:** cuánto ocupa la pieza, qué se ve al entrar y cómo convive con el CTA y el título en cada superficie.
-- **Ritmo y amplitud:** tiempos de acción y lectura, variación suficiente para cumplir el brief y estabilidad donde se necesita actuar.
+- **Material:** what exists in the scene and which assets were accepted or rejected.
+- **Transformation:** the structural, material, shape, or relationship change the person must perceive.
+- **Sequence:** initial state → development → main change → resolution; design the return as well if the piece repeats.
+- **Framing and reading:** how much space the piece occupies, what is visible on entry, and how it coexists with the CTA and heading on each surface.
+- **Rhythm and amplitude:** action and reading time, enough variation to fulfill the brief, and stability where action is needed.
 
-Como ejemplo de estructura, una señal puede aparecer, reconstruirse, interrumpirse y resolver en una composición distinta. Elige las fases y su duración según el contenido; no impongas esta secuencia a todas las piezas.
+As an example structure, a signal can appear, reconstruct, interrupt, and resolve in a different composition. Choose phases and durations for the content; do not impose this sequence on every piece.
 
-Implementa y observa primero el ciclo completo con el medio real. Si el brief exige transformación protagonista, variar ruido o tracking sobre la misma imagen no basta por el simple hecho de producir frames distintos. Lo mismo ocurre con un crossfade genérico entre estados cuando se pidió una transformación específica.
+Implement and observe the full cycle with the actual medium first. If the brief requires prominent transformation, varying noise or tracking over the same image is insufficient merely because it produces different frames. The same applies to a generic crossfade between states when a specific transformation was requested.
 
-Un loop expresamente solicitado puede tener narrativa y propósito. Registra su alcance y haz legible su progresión; conserva pausa, accesibilidad y adaptación al dispositivo. La regla contra bucles ornamentales no debe neutralizar una pieza audiovisual pedida explícitamente.
+An expressly requested loop can have narrative and purpose. Record its scope and make its progression legible; preserve pause controls, accessibility, and device adaptation. The restriction on ornamental loops must not neutralize an explicitly requested audiovisual piece.
 
-Las cards o muestras deben demostrar lo que anuncian. Si prometen un comportamiento animado, una captura a un tiempo fijo no lo demuestra. Si la tarea solo requiere comparar apariencia estática, una muestra fija puede ser correcta: registra la diferencia sin convertir todas las cards en animaciones por obligación.
+Cards or samples must demonstrate what they claim. If they promise animated behavior, a capture at a fixed time does not establish it. If the task only requires comparing static appearance, a fixed sample can be correct: record the distinction without making every card animate by obligation.
 
-## Personalidad coherente
+## Coherent character
 
-Elige cualidades concretas según el producto: preciso, mecánico, pesado, elástico, delicado o enérgico. Define una familia breve de duraciones, recorridos y curvas. La masa percibida y la distancia informan el timing; ninguna curva de resorte es universalmente «premium».
+Choose concrete qualities for the product: precise, mechanical, heavy, elastic, delicate, or energetic. Define a small family of durations, distances, and curves. Perceived mass and distance inform timing; no spring curve is universally “premium.”
 
-Usa un gesto distintivo dominante por flujo o sección protagonista, acompañado de transiciones discretas. La expresividad puede ser intensa donde ayude a la narrativa; el contenido de trabajo frecuente necesita estabilidad y respuesta inmediata.
+Use one dominant distinctive gesture per flow or prominent section, supported by discreet transitions. Expression can be intense where it helps the narrative; frequently used working content needs stability and immediate response.
 
-Como punto de partida ajustable, el feedback directo suele requerir decenas de milisegundos y las transiciones locales unos pocos cientos. Observa el resultado: la duración no debe retrasar la tarea ni impedir leer. No añadas esperas artificiales para completar una coreografía.
+As an adjustable starting point, direct feedback often needs tens of milliseconds and local transitions a few hundred. Observe the result: duration must not delay the task or prevent reading. Do not add artificial waits to complete choreography.
 
-### Referencias numéricas de timing y física
+### Numerical timing and settling references
 
-Conserva parámetros concretos como puntos de partida revisables, nunca como garantía estética o de rendimiento:
+Keep concrete parameters as revisable starting points, never as a guarantee of aesthetics or performance:
 
-| Situación | Referencia inicial | Ajuste |
+| Situation | Starting reference | Adjustment |
 | --- | --- | --- |
-| Respuesta a presión o hover | 80–150 ms | La acción se reconoce inmediatamente y sigue accesible sin hover. |
-| Cambio local o salida breve | 150–250 ms | Mantener continuidad sin demorar la siguiente acción. |
-| Expansión, detalle o cambio de contexto | 250–400 ms | Relacionar origen y destino con una resolución legible. |
-| Cascada justificada | Separación de 30–70 ms, presupuesto total breve | Evitar que el último elemento útil espere para poder usarse. |
-| Resolución precisa | Asentamiento sin rebote perceptible | Adecuada cuando la posición final importa para leer, comparar o accionar. Ajustar la curva a la distancia. |
-| Resolución elástica | Un sobrepaso breve como máximo, si la dirección lo justifica | Ajustar masa y amortiguación en la API instalada hasta lograr ese comportamiento; comprobar interrupción y repetición. |
+| Press or hover response | 80–150 ms | The action is recognized immediately and remains accessible without hover. |
+| Local change or brief exit | 150–250 ms | Preserve continuity without delaying the next action. |
+| Expansion, detail, or context change | 250–400 ms | Relate origin and destination through a legible resolution. |
+| Justified cascade | 30–70 ms separation, brief total budget | Avoid making the last useful element wait before it can be used. |
+| Precise resolution | Settling without perceptible bounce | Suitable when final position matters for reading, comparison, or action. Adjust the curve to distance. |
+| Elastic resolution | At most one brief overshoot if justified by the direction | Adjust mass and damping in the installed API until that behavior is achieved; check interruption and repetition. |
 
-Registra los valores elegidos para el gesto dominante y sus variantes cuando la dirección dependa del movimiento. Si el motor no usa esos parámetros físicos, conserva el carácter observable mediante sus controles propios. La tabla es una referencia de diseño; verifica la implementación en el render.
+Record chosen values for the dominant gesture and its variants when direction depends on motion. If the engine does not use these physical parameters, preserve the observable character through its own controls. The table is a design reference; verify implementation in the render.
 
-## Ejemplos causales
+## Causal examples
 
-| Situación | Relación a preservar |
+| Situation | Relationship to preserve |
 | --- | --- |
-| Reordenar | La pieza conserva continuidad, hace visible origen y destino y se asienta donde queda. |
-| Filtrar | El conjunto permite entender qué permanece, qué sale y qué aparece. |
-| Abrir detalle | El elemento elegido conecta con el contexto ampliado y permite volver a su origen. |
-| Cambiar vista | La persona mantiene una referencia de posición o selección. |
-| Confirmar una acción | La respuesta acompaña el resultado real en el lugar pertinente. |
-| Revelar una secuencia editorial | El cambio ayuda a leer una relación o historia propia del contenido. |
+| Reordering | The piece retains continuity, makes origin and destination visible, and settles in place. |
+| Filtering | The set makes it understandable what remains, leaves, and appears. |
+| Opening detail | The selected element connects to expanded context and allows returning to its origin. |
+| Changing view | The person retains a reference to position or selection. |
+| Confirming an action | The response accompanies the actual result in the relevant location. |
+| Revealing an editorial sequence | Change helps read a relationship or story specific to the content. |
 
-Estos ejemplos explican decisiones; no son recetas para añadirlas a todos los productos. Evita simular datos que se reordenan o actividad que no sucede.
+These examples explain decisions; they are not recipes to add to every product. Avoid simulating reordering data or activity that does not happen.
 
-## Implementación y coste
+## Implementation and cost
 
-Reutiliza el motor instalado y comprueba su versión y API. CSS puede bastar para transiciones pequeñas; un motor adicional necesita una necesidad concreta. Motores distintos pueden coexistir en partes independientes, pero no deben competir por la misma propiedad del mismo elemento.
+Reuse the installed engine and check its version and API. CSS may be enough for small transitions; an additional engine needs a concrete reason. Different engines can coexist in independent parts, but must not compete for the same property on the same element.
 
-Para cambios continuos, evita actualizaciones de estado que rerendericen el árbol cada frame. Usa mecanismos adecuados del motor, valores mutables o una animación nativa. Prioriza transform y opacity cuando cumplan el efecto; no prometas aceleración GPU o fluidez sin observar su coste.
+For continuous changes, avoid state updates that rerender the tree every frame. Use suitable engine mechanisms, mutable values, or native animation. Prioritize transform and opacity when they fulfill the effect; do not promise GPU acceleration or smoothness without observing cost.
 
-Las transiciones de geometría necesitan una estrategia consciente de layout, transformaciones o API nativa; medir y escribir layout repetidamente puede ser costoso. No uses `transition: all`: declara las propiedades necesarias.
+Geometry transitions need a conscious layout, transform, or native-API strategy; repeatedly measuring and writing layout can be expensive. Do not use `transition: all`: declare the necessary properties.
 
-Limpia listeners, observers, timelines y timers al salir. Pausa trabajo continuo cuando no se ve o la pestaña queda inactiva. Usa `will-change` solo cuando sea útil y retíralo cuando corresponda.
+Clean up listeners, observers, timelines, and timers on exit. Pause continuous work when it is out of view or the tab is inactive. Use `will-change` only when useful and remove it when appropriate.
 
-`memo` no es una garantía de rendimiento. Aísla el trabajo por responsabilidad y mide el problema real antes de añadir optimizaciones. Mantén una versión usable si el script tarda, falla o no llega a ejecutar la entrada.
+`memo` does not guarantee performance. Isolate work by responsibility and measure the actual problem before adding optimizations. Keep a usable version if the script is slow, fails, or never runs its entrance.
 
-## Touch y accesibilidad
+## Touch and accessibility
 
-El efecto hover es un enriquecimiento para punteros capaces. Toda acción y dato esencial deben estar disponibles por touch y teclado. Un elemento que se mueve persiguiendo el cursor no puede dificultar acertar el control.
+Hover effects enrich capable pointers. Every essential action and datum must remain available through touch and keyboard. An element following the cursor must not make the control harder to hit.
 
-Con `prefers-reduced-motion`, simplifica o elimina movimiento no esencial conservando resultado, foco y feedback. Mantén el contenido visible; un elemento con opacity 0 a la espera de una animación desactivada es un fallo.
+With `prefers-reduced-motion`, simplify or remove nonessential movement while preserving outcome, focus, and feedback. Keep content visible; an element at opacity 0 waiting for a disabled animation is a failure.
 
-Si existe movimiento automático funcional, ofrece control cuando corresponda y evita interferir con la lectura. Un indicador de procesamiento debe terminar al resolver la operación; la app no puede aparentar actividad perpetua.
+If functional automatic movement exists, offer control when appropriate and avoid interfering with reading. A processing indicator must end when the operation resolves; the app cannot pretend to be perpetually active.
 
-## Verificar ritmo y comportamiento
+## Verify rhythm and behavior
 
-Observa la secuencia completa: entrada, interrupción, repetición, salida y retorno. Prueba acción rápida, cambio de estado antes de que termine y preferencia de movimiento reducido.
+Observe the full sequence: entrance, interruption, repetition, exit, and return. Test fast actions, state changes before completion, and reduced-motion preference.
 
-Una imagen no valida ritmo. Cuando el movimiento define la propuesta, ofrece una prueba interactiva corta con pausa y repetición; agrega scrub o velocidad reducida si ayudan a revisar. No generes un video o estudio costoso por defecto para un hover sencillo.
+An image does not validate rhythm. When movement defines the proposal, offer a short interactive demonstration with pause and replay; add scrubbing or slower speed if useful for review. Do not generate a costly video or study by default for a simple hover.
 
-Informa qué se observó y bajo qué condiciones. Si afirmas un objetivo de frames por segundo, acompáñalo con una medición del recorrido y dispositivo o entorno usado.
+Report what was observed and under which conditions. If claiming a frame-rate target, include a measurement of the walkthrough and the device or environment used.
 
-### Impacto temporal independiente
+### Independent temporal impact
 
-Evalúa a velocidad normal la lectura del cambio principal, amplitud, progresión, pausas y resolución. Revisa también primer encuadre, final, retorno y cambio de ejemplo. Un control Pause funcional verifica reproducción; no demuestra calidad de coreografía.
+Evaluate the main change's readability, amplitude, progression, pauses, and resolution at normal speed. Also review the first frame, ending, return, and change of example. A working Pause control verifies playback, not choreography quality.
 
-Conserva una grabación o una referencia de reproducción observada, más fotogramas de las fases relevantes si ayudan a comparar. Una contact sheet comunica estructura, pero no sustituye mirar la secuencia en tiempo real. Si no puedes observar reproducción, el impacto queda pendiente; no lo apruebes a partir del código.
+Keep a recording or reference to observed playback, with key-phase frames if useful for comparison. A contact sheet communicates structure but does not replace watching the sequence in real time. If playback cannot be observed, impact remains pending; do not approve it from code.
 
-Un límite programado de actualizaciones es una decisión, no una medición de FPS. Si el presupuesto de rendimiento obliga a cambiar el lenguaje o la fluidez, explica y resuelve ese conflicto; no reduzcas silenciosamente la expresión que define el pedido. Un tratamiento deliberado de pocos fotogramas puede ser válido si es la dirección elegida, no una excusa automática.
+A programmed update limit is a decision, not an FPS measurement. If the performance budget requires changing language or fluidity, explain and resolve the conflict; do not silently reduce the expression that defines the request. A deliberately low-frame-rate treatment can be valid when it is the selected direction, not an automatic excuse.
 
-Registra el resultado en la revisión temporal de [aceptación](acceptance.md). La diferencia de píxeles entre dos imágenes solo prueba cambio; debe acompañarse de la evaluación del brief y del ciclo completo.
+Record the outcome in the temporal [acceptance](acceptance.md) review. Pixel differences between two images establish only change; they must accompany evaluation of the brief and full cycle.
 
-## Referencias técnicas
+## Technical references
 
-Verifica la API de la biblioteca instalada con su documentación oficial cuando haga falta. Para accesibilidad y límites de memoización:
+Verify the installed library's API against its official documentation when needed. For accessibility and memoization limits:
 
 - [W3C: Animation from Interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html)
 - [W3C: Pause, Stop, Hide](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html)

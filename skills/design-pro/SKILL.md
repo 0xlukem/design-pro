@@ -1,20 +1,20 @@
 ---
 name: design-pro
 license: MIT
-description: "Diseña, construye, ajusta y audita interfaces web con identidad y sin clichés de IA (anti-slop). Usar para dirección visual, rediseños, referencias, UX, motion y responsive. Integra una entrevista de al menos 15 preguntas en proyectos abiertos, contrato observable del brief y aceptación independiente de funcionamiento, fidelidad visual e impacto temporal. Los ajustes puntuales conservan decisiones resueltas. No usar para backend ni cambios sin efecto en la interfaz."
+description: "Design, build, refine, and audit web interfaces with a distinct identity and without generic AI design clichés (anti-slop). Use for visual direction, redesigns, references, UX, motion, and responsive work. Includes at least 15 discovery questions for open-ended projects, an observable brief contract, and independent acceptance of functionality, visual fidelity, and temporal impact. Focused adjustments preserve resolved decisions. Do not use for backend work or changes with no effect on the interface."
 metadata:
-  version: "1.3.0"
+  version: "1.3.1"
 ---
 
 # Design Pro
 
-Diseña desde la tarea de la persona y una idea visual reconocible. Construye identidad mediante composición, proporción, tipografía, contenido, imágenes y comportamiento. Toda decisión expresiva debe servir a esa dirección; toda interacción debe ayudar a usar el producto.
+Design around the person's task and a recognizable visual idea. Build identity through composition, proportion, typography, content, imagery, and behavior. Every expressive decision should serve that direction; every interaction should help someone use the product.
 
-Habla en el idioma del usuario. Explica las decisiones en términos de su efecto visible. Esta skill es autónoma: incluye su entrevista y funciona con las herramientas disponibles en Claude o Codex, sin requerir otra skill, plugin, memoria personal ni stack determinado.
+Respond in the user's language. Explain decisions through their visible effects. This skill is self-contained: it includes its discovery interview and works with the tools available in Claude or Codex, without requiring another skill, a particular plugin, personal memory, or a specific stack.
 
-## Controles de dirección
+## Direction controls
 
-Usa tres controles explícitos para traducir la dirección a decisiones de composición, movimiento e información. Para una creación nueva sin dirección resuelta, parte de:
+Use three explicit controls to translate direction into composition, motion, and information decisions. For a new creation without a resolved direction, start with:
 
 ```text
 DESIGN_VARIANCE: 8
@@ -22,159 +22,159 @@ MOTION_INTENSITY: 6
 VISUAL_DENSITY: 4
 ```
 
-`DESIGN_VARIANCE` controla cuánto se aparta la composición de una estructura previsible; `MOTION_INTENSITY`, la presencia del movimiento; `VISUAL_DENSITY`, cuánta información comparte el espacio. Usa siempre estos nombres, sin introducir un segundo `LAYOUT_VARIANCE`.
+`DESIGN_VARIANCE` controls how far the composition departs from a predictable structure; `MOTION_INTENSITY`, the presence of movement; `VISUAL_DENSITY`, how much information shares the space. Always use these names, without introducing a second `LAYOUT_VARIANCE`.
 
-Los valores iniciales orientan la exploración; la entrevista, el producto, una referencia elegida o una instrucción del usuario pueden ajustarlos. Registra los tres valores efectivos y su razón en la ficha de dirección. No pidas que el usuario edite el archivo ni que entienda números para elegir: traduce sus respuestas a decisiones visibles.
+Starting values guide exploration; discovery, the product, a selected reference, or a user instruction can adjust them. Record all three effective values and their reasons in the direction brief. Do not ask the user to edit the file or understand numbers to choose: translate their answers into visible decisions.
 
-Si el producto tiene superficies con tareas distintas, define perfiles por superficie. Un hero promocional puede necesitar movimiento protagonista y el editor de trabajo estabilidad. Conservar marca no obliga a igualar su intensidad, composición o densidad. Los números deben traducirse a decisiones y, cuando se pide motion protagonista, a una secuencia observable.
+When a product has surfaces with different tasks, define a profile for each surface. A promotional hero may need prominent motion while a working editor needs stability. Preserving a brand does not require matching intensity, composition, or density across surfaces. Translate the numbers into decisions and, when prominent motion is requested, an observable sequence.
 
-Los bloqueos de la sección 2 prevalecen sobre cualquier valor. Intensidad 6 no activa bucles, botones magnéticos o efectos decorativos. En un ajuste puntual, conserva el perfil existente en lugar de imponer el inicial. Consulta los niveles y criterios concretos en [dirección visual](references/visual-direction.md).
+The restrictions in section 2 override every setting. Intensity 6 does not activate loops, magnetic buttons, or decorative effects. For a focused adjustment, preserve the existing profile instead of imposing the starting values. See [visual direction](references/visual-direction.md) for levels and concrete criteria.
 
-## 1. Elegir el recorrido
+## 1. Choose the path
 
-Lee el pedido y el contexto disponible antes de actuar. En un proyecto existente, consulta sus instrucciones, documentación visual, componentes, tokens, assets y configuración. Inspecciona directamente las referencias pertinentes.
+Read the request and available context before acting. In an existing project, inspect its instructions, visual documentation, components, tokens, assets, and configuration. Inspect relevant references directly.
 
-| Pedido | Recorrido |
+| Request | Path |
 | --- | --- |
-| Proyecto nuevo o rediseño con dirección abierta | Entrevista integrada → dirección → referencia visual si se solicita → implementación si forma parte del pedido → verificación. |
-| Referencias pedidas desde el primer mensaje | Resuelve producto, audiencia y objetivo; ofrece el tablero de ocho direcciones temprano y continúa la entrevista a partir de la elección. |
-| Dirección ya cerrada o visual ya elegida | Extrae decisiones y restricciones; aclara únicamente los vacíos que cambian el resultado. |
-| Ajuste puntual | Conserva la dirección, el contenido y los comportamientos ajenos al ajuste. Cambia lo necesario y verifica su impacto. |
-| Auditoría o read only | Inspecciona, captura y presenta hallazgos con evidencia; no modifica archivos. |
+| New project or redesign with an open direction | Built-in discovery → direction → visual reference if requested → implementation if included in the request → verification. |
+| References requested in the first message | Establish product, audience, and goal; offer the eight-direction board early and continue discovery from the selection. |
+| Resolved direction or selected visual | Extract decisions and constraints; clarify only gaps that change the result. |
+| Focused adjustment | Preserve direction, content, and behavior outside the adjustment. Change what is necessary and verify its impact. |
+| Audit or read-only request | Inspect, capture, and report findings with evidence; do not modify files. |
 
-La entrevista completa corresponde a creación y rediseño abiertos. No reinicies el descubrimiento para una corrección ni reabras decisiones resueltas. Si el usuario pide explícitamente saltar la entrevista o delega todas las decisiones, registra esa elección, declara las suposiciones y elige una dirección coherente.
+Full discovery applies to open-ended creation and redesign. Do not restart discovery for a correction or reopen resolved decisions. If the user explicitly skips the interview or delegates all decisions, record that choice, state assumptions, and choose a coherent direction.
 
-### Marca conservada y dirección resuelta
+### Preserved branding and resolved direction
 
-Conservar logo, paleta, identidad oscura o stack fija restricciones; no resuelve la dirección de arte. Para usar el recorrido de dirección cerrada deben estar claros composición, lenguaje tipográfico, material visual, jerarquía y comportamiento, mediante una referencia o decisiones observables. Si faltan, trabaja esa dirección en el alcance afectado.
+Preserving a logo, palette, dark identity, or stack establishes constraints; it does not resolve art direction. To use the resolved-direction path, composition, typographic language, visual material, hierarchy, and behavior must be clear through a reference or observable decisions. If they are missing, develop that direction within the affected scope.
 
-Un pedido nuevo de lenguaje, protagonismo o material visual reabre las decisiones correspondientes, aunque la marca se conserve. No reinicies todo el descubrimiento si el usuario ya dio el nuevo brief: concrétalo, declara las decisiones de implementación y desarrolla lo pedido.
+A new request for visual language, prominence, or material reopens the corresponding decisions even when branding stays. Do not restart all discovery when the user has already supplied the new brief: make it concrete, state implementation decisions, and build what was requested.
 
-## 2. Contrato visual: bloqueos por defecto
+## 2. Visual contract: default restrictions
 
-Esta tabla es la fuente de verdad de los bloqueos. Se aplica a propuestas, imágenes generadas y código nuevo o modificado. Una referencia o el estilo existente no habilitan excepciones por sí solos. Conserva el código ajeno al alcance; informa conflictos relevantes sin convertir el pedido en un rediseño global.
+This table is the source of truth for restrictions. It applies to proposals, generated images, and new or modified code. A reference or existing style does not enable exceptions by itself. Preserve code outside the scope; report relevant conflicts without turning the request into a global redesign.
 
-| Bloqueado | Construir en su lugar |
+| Blocked by default | Build instead |
 | --- | --- |
-| Gradientes decorativos en fondos, texto, botones, bordes, SVG, imágenes o blobs; también mesh y halos | Superficies planas, contraste, composición e imágenes pertinentes. No evadir la regla rasterizando el mismo gradiente. |
-| Eyebrows y badges decorativos sobre títulos, como «INTRODUCING», «OUR PLATFORM» o «WHY US» | Encabezados que nombran directamente el contenido. |
-| Fuente Inter, incluidos imports, presets y elección deliberada como fallback | Familia elegida por legibilidad, carácter, idioma, disponibilidad y encaje con la dirección. No sustituirla siempre por la misma fuente. |
-| Destacar una palabra del título con subrayado dibujado, resaltador, otro color, cursiva o cambio ornamental de familia | Jerarquía y expresividad mediante el conjunto de la composición tipográfica. |
-| CTAs de promoción paralelos y con igual peso; pares repetidos «Get started / Learn more» | Una acción principal por bloque de decisión; enlaces secundarios solo cuando ayudan a la tarea. |
-| Filas genéricas de tres cards, bento de relleno, cards anidadas y una caja por cada fragmento | Agrupación por significado, ritmo, espacios, listas, tablas o divisores. Una card debe representar una unidad real. |
-| Glassmorphism, glows, partículas, órbitas, rejillas de fondo, cursores personalizados y emojis ornamentales por plantilla | Un gesto distintivo ligado al contenido y superficies acordes a su función. |
-| Métricas, logos, testimonios, personas o actividad inventados que aparentan ser evidencia real | Contenido proporcionado o verificado. Si hace falta una simulación, acordar su uso y declarar su naturaleza en la entrega. |
-| Copy intercambiable: «Elevate», «Seamless», «Unleash», «Next-gen», «potenciá tu negocio», «solución integral» | Verbos, objetos y beneficios concretos que se puedan sostener. |
-| Fade-up en todos los bloques, typewriter ornamental, cards flotantes, botones magnéticos, scroll secuestrado y bucles decorativos | Movimiento causal y acotado, con inicio, cambio y resolución. |
+| Decorative gradients in backgrounds, text, buttons, borders, SVG, images, or blobs; also mesh and halos | Flat surfaces, contrast, composition, and relevant imagery. Do not bypass the restriction by rasterizing the same gradient. |
+| Decorative eyebrows and badges above headings, such as “INTRODUCING,” “OUR PLATFORM,” or “WHY US” | Headings that name the content directly. |
+| Inter, including imports, presets, and deliberate fallback selection | A family chosen for readability, character, language, availability, and fit with the direction. Do not always substitute the same font. |
+| Decorating one heading word with a drawn underline, highlighter, another color, italics, or an ornamental font change | Hierarchy and expression through the complete typographic composition. |
+| Parallel promotional CTAs with equal weight; repeated “Get started / Learn more” pairs | One primary action per decision block; secondary links only when they help the task. |
+| Generic three-card rows, filler bento grids, nested cards, and a container for every fragment | Grouping by meaning, rhythm, spacing, lists, tables, or dividers. A card must represent a real unit. |
+| Template-driven glassmorphism, glows, particles, orbits, background grids, custom cursors, and ornamental emojis | A distinctive gesture tied to the content and surfaces suited to their function. |
+| Invented metrics, logos, testimonials, people, or activity presented as real evidence | Provided or verified content. If a simulation is needed, agree on its use and disclose its nature in the delivery. |
+| Interchangeable copy: “Elevate,” “Seamless,” “Unleash,” “Next-gen,” “boost your business,” “all-in-one solution” | Concrete verbs, objects, and benefits that can be supported. |
+| Fade-ups on every block, ornamental typewriters, floating cards, magnetic buttons, scroll hijacking, and decorative loops | Causal, bounded motion with a beginning, change, and resolution. |
 
-### Excepciones y función
+### Exceptions and function
 
-- Una petición explícita puede habilitar un recurso, con alcance concreto. Registra recurso, ubicación y pedido que lo habilita. «Premium», «moderno», «editorial» o «como esta referencia» no anulan la tabla.
-- Un pedido explícito de hero animado, video con glitch o pieza audiovisual exige construir esa expresión en el alcance nombrado. Las transformaciones y transiciones necesarias de esa pieza no requieren una nueva consulta por cada efecto. Conserva los bloqueos independientes: el género cyberpunk por sí solo no habilita gradientes, Inter o varios CTAs.
-- Si una referencia elegida contiene un recurso bloqueado, explica cómo conservar su intención con otro tratamiento. Pregunta por una excepción solo si el conflicto impide cumplir una instrucción concreta.
-- Los labels de formularios, breadcrumbs, foco visible, subrayado convencional de enlaces y categorías funcionales son semántica, no eyebrows o énfasis ornamental.
-- Guardar, cancelar, editar o paginar son controles funcionales. La regla de un CTA no limita artificialmente las acciones necesarias de una aplicación.
-- Una escala de color necesaria para interpretar un dato debe ser semántica y explicable; no sirve de excusa para introducir fondos decorativos.
-- Un indicador de procesamiento real puede necesitar un bucle. Debe tener propósito verificable, alternativa accesible y finalizar con el estado correspondiente.
-- Las simulaciones no habilitan avisos de «demo», «prueba» o «vista previa» en el producto por defecto. Declara sus límites en la conversación; añade etiquetas al producto solo cuando el usuario las pide o se acuerdan expresamente.
+- An explicit request can enable a resource within a concrete scope. Record the resource, location, and request that enables it. “Premium,” “modern,” “editorial,” or “like this reference” do not override the table.
+- An explicit request for an animated hero, glitch video, or audiovisual piece requires building that expression in the named scope. Necessary transformations and transitions within that piece do not require another question for each effect. Preserve independent restrictions: the cyberpunk genre alone does not enable gradients, Inter, or multiple CTAs.
+- If a selected reference contains a blocked resource, explain how to preserve its intent with another treatment. Ask about an exception only if the conflict prevents fulfilling a concrete instruction.
+- Form labels, breadcrumbs, visible focus, conventional link underlines, and functional categories are semantics, not eyebrows or ornamental emphasis.
+- Save, cancel, edit, and pagination are functional controls. The CTA rule does not artificially limit necessary application actions.
+- A color scale needed to interpret data must be semantic and explainable; it does not justify decorative backgrounds.
+- A real processing indicator may need a loop. It must have a verifiable purpose, an accessible alternative, and end in the corresponding state.
+- Simulations do not enable “demo,” “test,” or “preview” notices in the product by default. Explain their limitations in the conversation; add product labels only when requested or explicitly agreed.
 
-## 3. Entrevista integrada
+## 3. Built-in discovery
 
-Para creación o rediseño abiertos, realiza al menos **15 preguntas sustantivas** en rondas de **3 a 5**. Espera las respuestas de una ronda antes de preguntar por decisiones que dependan de ellas. Cada pregunta puede ofrecer 2–3 opciones explicadas y una recomendación contextual, sin preseleccionar silenciosamente la respuesta.
+For open-ended creation or redesign, ask at least **15 substantive questions** in rounds of **3 to 5**. Wait for a round's answers before asking about decisions that depend on them. Each question may offer 2–3 explained options and a contextual recommendation, without silently preselecting the answer.
 
-Inspecciona por tu cuenta lo que el proyecto puede responder. No preguntes qué librerías o archivos existen. Si el prompt ya resuelve una pregunta, conserva la respuesta y usa ese espacio para profundizar otra decisión: no repitas preguntas ni rellenes la cuota con preferencias irrelevantes.
+Inspect what the project can answer on its own. Do not ask which libraries or files exist. If the prompt already answers a question, preserve that answer and use the space to deepen another decision: avoid repeated questions and irrelevant preferences added to fill the quota.
 
-Estas quince preguntas son la base adaptable de la entrevista:
+These fifteen questions are an adaptable foundation for discovery:
 
-1. ¿Qué tiene que conseguir la persona al usar esto? Define un resultado concreto.
-2. ¿Para quién lo diseñamos y qué conocimientos o dificultades trae?
-3. ¿Cuál es la acción principal que queremos facilitar?
-4. ¿En qué contexto y dispositivos lo usará: primera visita, uso frecuente, poco tiempo o sesiones largas?
-5. ¿Qué contenido es indispensable y qué debe quedar afuera?
-6. ¿Qué necesita entender o confiar antes de actuar?
-7. ¿Qué tres cualidades debería transmitir? Explica opciones como preciso, cálido, técnico, editorial, sobrio o lúdico.
-8. ¿Qué te gusta exactamente de las referencias elegidas: estructura, ritmo, tipografía, imágenes o comportamiento?
-9. ¿Qué querés evitar además de los bloqueos predeterminados?
-10. ¿Qué papel debería tener la tipografía: funcional, protagonista, compacta o editorial?
-11. ¿Qué carácter debería tener el color y qué restricciones reales existen?
-12. ¿Qué llevará el peso visual: producto real, fotografía, ilustración, datos o composición tipográfica?
-13. ¿Qué debe explicar o expresar el movimiento, y qué momentos necesitan tranquilidad?
-14. ¿Qué tarea debe poder completarse en mobile con la misma claridad que en desktop?
-15. ¿Qué situaciones frustrarían más a la persona y cómo debería recuperarse de ellas?
+1. What must someone achieve by using this? Define a concrete outcome.
+2. Who are we designing for, and what knowledge or difficulties do they bring?
+3. What is the main action we want to make easier?
+4. In what context and on which devices will they use it: first visit, frequent use, limited time, or long sessions?
+5. What content is essential, and what should stay out?
+6. What must they understand or trust before acting?
+7. Which three qualities should it communicate? Explain options such as precise, warm, technical, editorial, restrained, or playful.
+8. What exactly do you like about the selected references: structure, rhythm, typography, imagery, or behavior?
+9. What do you want to avoid beyond the default restrictions?
+10. What role should typography play: functional, prominent, compact, or editorial?
+11. What character should color have, and what real constraints apply?
+12. What will carry the visual weight: the real product, photography, illustration, data, or typographic composition?
+13. What should motion explain or express, and which moments need calm?
+14. What task must be just as clear to complete on mobile as on desktop?
+15. Which situations would frustrate someone most, and how should they recover?
 
-Las repreguntas deben resolver ambigüedades. Ante «minimalista», distingue cantidad de información, decoración y espacio. Ante «dinámico», distingue feedback, narrativa y actividad ambiental. No pidas que el usuario domine vocabulario de diseño.
+Follow-up questions should resolve ambiguity. For “minimal,” distinguish information quantity, decoration, and space. For “dynamic,” distinguish feedback, narrative, and ambient activity. Do not require the user to know design terminology.
 
-La entrevista termina cuando se han trabajado las quince preguntas y están claras tarea, jerarquía, dirección y restricciones. Si quedan decisiones que afectan esas bases, profundiza antes de generar o construir. No presentes las quince preguntas juntas como un formulario rígido.
+Discovery ends when all fifteen questions have been addressed and the task, hierarchy, direction, and constraints are clear. If remaining decisions affect those foundations, investigate them before generating or building. Do not present all fifteen questions together as a rigid form.
 
-## 4. Dirección y referencia visual
+## 4. Direction and visual reference
 
-Tras la entrevista o ante una dirección ya definida, lee [dirección visual](references/visual-direction.md). Produce una ficha breve con objetivo, audiencia, acción principal, contenido, idea visual dominante, tipografía, color, imágenes, motion, prioridad mobile y excepciones explícitas. Separa decisiones del usuario de recomendaciones y suposiciones.
+After discovery, or when direction is already defined, read [visual direction](references/visual-direction.md). Produce a short direction brief covering goal, audience, primary action, content, dominant visual idea, typography, color, imagery, motion, mobile priority, and explicit exceptions. Separate user decisions from recommendations and assumptions.
 
-Cuando se pidan estilos o alternativas, consulta la [biblioteca de estilos y lenguajes visuales](references/style-library.md). Conserva el repertorio de referencias y elige familias por el brief; un estilo no impone un efecto, un componente ni una excepción a los bloqueos.
+When styles or alternatives are requested, consult the [style and visual language library](references/style-library.md). Preserve the reference repertoire and select families for the brief; a style does not dictate an effect, component, or exception to restrictions.
 
-Traduce los requisitos explícitos a un contrato positivo: pedido → resultado observable → evidencia que lo validará. Incluye el carácter visual y el protagonismo del material, además de las funciones. Un claim, una familia tipográfica o un color aislados no demuestran una dirección. Si el pedido exige una escena animada protagonista, un retrato fijo con variaciones mínimas no satisface ese contrato.
+Translate explicit requirements into a positive contract: request → observable outcome → validating evidence. Include visual character and the prominence of the material as well as functionality. A claim, font family, or isolated color does not establish direction. If the request calls for a prominent animated scene, a fixed portrait with minor variations does not satisfy that contract.
 
-Define `DESIGN_VARIANCE`, `MOTION_INTENSITY` y `VISUAL_DENSITY` según el caso y explica su efecto visible. Son controles de diseño, no pesos internos del modelo ni parámetros exactos de render. Una referencia elegida determina la composición por encima de esos controles.
+Set `DESIGN_VARIANCE`, `MOTION_INTENSITY`, and `VISUAL_DENSITY` for the case and explain their visible effects. These are design controls, not internal model weights or exact rendering parameters. A selected reference determines composition ahead of these controls.
 
-Cuando necesites resolver cómo presentar, ordenar, comparar, explorar, operar o narrar contenido, consulta el [catálogo de decisiones visuales](references/creative-library.md). Elige por el problema del brief y comprueba su criterio mobile; evita acumular patrones por variedad. El tablero de ocho estilos explora direcciones; el catálogo ayuda a convertir la dirección elegida en una interfaz concreta.
+When deciding how to present, organize, compare, explore, operate, or narrate content, consult the [visual decision catalog](references/creative-library.md). Choose for the brief's problem and check its mobile criterion; avoid accumulating patterns for variety. The eight-style board explores directions; the catalog helps turn the chosen direction into a concrete interface.
 
-### Si pide referencias desde el primer prompt
+### References requested in the first prompt
 
-Con producto, audiencia y objetivo claros, crea temprano **un tablero de ocho direcciones A–H**, normalmente en una imagen 4 × 2. No esperes a terminar toda la entrevista para ayudar a elegir un lenguaje visual. Si falta ese contexto mínimo, pregunta solo lo necesario primero.
+Once product, audience, and goal are clear, create **an eight-direction board A–H** early, usually in one 4 × 2 image. Do not wait until all discovery is complete to help choose a visual language. If that minimum context is missing, ask only what is necessary first.
 
-Mantén el mismo brief y contenido en las ocho celdas. Varía composición, jerarquía y lenguaje visual de forma sustancial. Todas respetan los bloqueos. Usa una herramienta de generación de imágenes disponible cuando se soliciten propuestas generadas; identifica las referencias reales y sus fuentes. No presentes una imagen sintética como un sitio real.
+Keep the same brief and content across all eight cells. Substantially vary composition, hierarchy, and visual language. Every cell respects the restrictions. Use an available image-generation tool when generated proposals are requested; identify real references and their sources. Do not present a synthetic image as a real site.
 
-El tablero sirve para comparar dirección, no para aprobar legibilidad en miniatura. Acompáñalo con una leyenda A–H y amplía la opción elegida. Si se combinan opciones, define una dirección dominante y una síntesis coherente.
+The board compares direction; it does not approve readability at thumbnail size. Include an A–H legend and enlarge the chosen option. When combining options, define a dominant direction and coherent synthesis.
 
-### Imagen del resultado elegido
+### Image of the selected result
 
-Al cerrar el brief, ofrece una sola vez: «La dirección elegida es [resumen]. ¿Querés que genere una referencia visual de cómo quedaría, incluyendo desktop y mobile?».
+When the brief is complete, offer once: “The selected direction is [summary]. Would you like me to generate a visual reference of how it would look, including desktop and mobile?”
 
-- Si ya pidió esa imagen, genérala cuando el brief esté listo sin volver a preguntarlo.
-- Si acepta la imagen, muéstrala y espera su elección o correcciones antes de implementar desde ella. Una imagen genérica no sustituye la composición mobile.
-- Si declina y la implementación está pedida, continúa con la dirección acordada; las imágenes no son una puerta obligatoria.
-- Si aporta una referencia suficiente, analízala y úsala; no generes alternativas adicionales sin motivo.
-- Si la generación no está disponible, explica el límite. Ofrece un wireframe o especificación como alternativa y deja que el usuario elija; nunca afirmes que generaste una imagen.
+- If the image was already requested, generate it when the brief is ready without asking again.
+- If the user accepts the image, show it and wait for their selection or corrections before implementing from it. A generic image does not replace mobile composition.
+- If they decline and implementation was requested, continue with the agreed direction; images are not a mandatory gate.
+- If they supply a sufficient reference, analyze and use it; do not generate extra alternatives without a reason.
+- If generation is unavailable, explain the limitation. Offer a wireframe or specification as an alternative and let the user choose; never claim to have generated an image.
 
-## 5. UX e implementación
+## 5. UX and implementation
 
-Antes de construir o revisar un flujo, lee [UX](references/ux.md). Resuelve tarea, jerarquía, navegación, estados relevantes, errores, recuperación y accesibilidad. Usa contenido real o simulaciones acordadas. No inventes funcionalidades para llenar espacio.
+Before building or reviewing a flow, read [UX](references/ux.md). Resolve the task, hierarchy, navigation, relevant states, errors, recovery, and accessibility. Use real content or agreed simulations. Do not invent features to fill space.
 
-En código existente, conserva su stack, tokens y componentes. Comprueba dependencias y versiones antes de importar. En proyectos nuevos, elige la solución más simple que cumpla el producto; no impongas React, Tailwind, un paquete de iconos o un motor de animación.
+In existing code, preserve its stack, tokens, and components. Check dependencies and versions before importing. In new projects, choose the simplest solution that satisfies the product; do not impose React, Tailwind, an icon package, or an animation engine.
 
-Separa comportamiento donde mejore la claridad. Prefiere estado cercano a su uso y reutiliza patrones del proyecto. Los límites servidor/cliente solo se aplican si el framework los soporta; los componentes servidor pueden cargar datos. No reduzcas un sistema entero a componentes estáticos para cumplir una receta.
+Separate behavior where it improves clarity. Prefer state close to its use and reuse project patterns. Server/client boundaries apply only when the framework supports them; server components can load data. Do not reduce a whole system to static components to follow a recipe.
 
-Crea jerarquía con espaciado, agrupación y tipografía antes de añadir superficies. Elige Grid o Flex según la relación del contenido. Reserva dimensiones de imágenes y medios para mantener estable el layout. Usa las capacidades reales de cada biblioteca y comprueba su API.
+Build hierarchy with spacing, grouping, and typography before adding surfaces. Choose Grid or Flex for the content relationship. Reserve image and media dimensions to keep layout stable. Use each library's actual capabilities and verify its API.
 
-Cuando se añada o cambie movimiento, lee [motion](references/motion.md). Selecciona el motor existente o la herramienta mínima necesaria y conserva el comportamiento funcional sin animación.
+When adding or changing movement, read [motion](references/motion.md). Select the existing engine or the smallest necessary tool and preserve functional behavior without animation.
 
-Cuando el hero o una demostración animada definan el pedido, construye y revisa primero esa pieza con sus medios reales, tipografía, CTA y encuadre. Observa la secuencia completa a velocidad normal en el viewport objetivo antes de extender esa dirección al resto de la superficie. No requiere una aprobación humana adicional si el usuario ya delegó la implementación; requiere una evaluación honesta contra el brief. Corrige los desvíos materiales antes de multiplicarlos en otras secciones.
+When the hero or an animated demonstration defines the request, build and review that piece first with its real media, typography, CTA, and framing. Observe the full sequence at normal speed in the target viewport before extending the direction to the rest of the surface. This does not require additional human approval when implementation has already been delegated; it requires an honest evaluation against the brief. Correct material deviations before multiplying them across other sections.
 
-Respeta el material visual rechazado: si se descarta una imagen base, revisa también sus derivados y reutilizaciones en cards u otras piezas del alcance. Elige muestras variadas por lo que deben demostrar, sin repetir un asset por comodidad ni inventar resultados que el producto no produce.
+Respect rejected visual material: if a base image is discarded, inspect its derivatives and reuse in cards or other in-scope pieces as well. Choose varied samples for what they need to demonstrate, without repeating an asset for convenience or inventing results the product cannot produce.
 
-## 6. Verificar y entregar
+## 6. Verify and deliver
 
-Toda implementación visual requiere [verificación responsive y mobile](references/mobile-qa.md). Inspecciona el render en un navegador disponible y recorre el flujo afectado. Mantén la superficie de navegador que el usuario haya pedido. Si faltan herramientas, entrega el trabajo posible y declara con precisión qué no se pudo verificar.
+Every visual implementation requires [responsive and mobile verification](references/mobile-qa.md). Inspect the render in an available browser and walk through the affected flow. Keep the browser surface the user requested. If tools are missing, complete the possible work and state precisely what could not be verified.
 
-Aplica la [aceptación del brief](references/acceptance.md) en tres revisiones independientes: **funcionamiento**, **fidelidad al brief** e **impacto temporal** cuando se solicita movimiento. Cada requisito explícito necesita su propio resultado. No promedies las revisiones ni compenses un fallo expresivo con orden, usabilidad o compilación. Una revisión pendiente permanece pendiente.
+Apply [brief acceptance](references/acceptance.md) through three independent reviews: **functionality**, **brief fidelity**, and **temporal impact** when movement is requested. Every explicit requirement needs its own result. Do not average the reviews or compensate for an expressive failure with order, usability, or compilation. A pending review stays pending.
 
-Compara contra la referencia usando el mismo viewport, posición de scroll y estado. Revisa proporciones, saltos de línea, encuadre, distancias, imágenes, acciones y lectura mobile. El ancho total sin overflow no demuestra por sí solo buena UX mobile.
+Compare with the reference using the same viewport, scroll position, and state. Review proportions, line breaks, framing, distances, images, actions, and mobile reading. Total width without overflow does not establish good mobile UX by itself.
 
-Para revisar código nuevo o modificado, usa el [auditor estático](references/source-audit.md) cuando haya Python 3 disponible. Detecta patrones de gradientes, Inter y bucles que necesitan contexto; no evalúa gusto, UX ni accesibilidad. Revisa sus hallazgos y realiza siempre la inspección visual.
+For new or modified code, use the [static auditor](references/source-audit.md) when Python 3 is available. It detects gradient, Inter, and loop patterns requiring context; it does not assess visual quality, UX, or accessibility. Review its findings and always perform visual inspection.
 
-El resultado `0` del auditor, ausencia de overflow, un build correcto o fotogramas con píxeles distintos son evidencia técnica acotada. Ninguno aprueba por sí solo la identidad visual, el protagonismo, el ritmo o la transformación solicitados. Para motion protagonista debes observar reproducción real; una captura o un contador de frames no sustituyen esa evaluación.
+Auditor result `0`, no overflow, a successful build, or frames with different pixels are limited technical evidence. None independently approves visual identity, prominence, rhythm, or the requested transformation. Prominent motion requires observed playback; a screenshot or frame counter does not replace that evaluation.
 
-Antes de entregar, comprueba:
+Before delivery, check:
 
-- Los bloqueos se cumplen o tienen una excepción explícita y acotada.
-- Se reconoce la tarea principal y el contenido tiene una jerarquía deliberada.
-- Los rasgos visuales, el material protagonista y cada requisito explícito del brief están visibles en el resultado y tienen evidencia pertinente.
-- Los controles y estados afectados funcionan; no se presenta una animación como prueba de éxito real.
-- Si se pidió una demostración animada, la secuencia tiene transformación perceptible, ritmo y resolución; se observó completa en su encuadre real.
-- La composición y operación mobile se comprobaron en anchos representativos, límites de breakpoints y rangos intermedios.
-- Teclado, foco, contraste y movimiento reducido se revisaron donde corresponde.
-- El resultado conserva la dirección acordada y las decisiones aprobadas fuera del cambio.
+- Restrictions are respected or have an explicit, scoped exception.
+- The main task is recognizable and content has a deliberate hierarchy.
+- Visual traits, prominent material, and every explicit brief requirement are visible in the result and have relevant evidence.
+- Affected controls and states work; animation is not presented as proof of real success.
+- If an animated demonstration was requested, its sequence has perceptible transformation, rhythm, and resolution, and was observed in full within its actual framing.
+- Mobile composition and operation were checked at representative widths, breakpoint boundaries, and intermediate ranges.
+- Keyboard use, focus, contrast, and reduced motion were reviewed where relevant.
+- The result preserves the agreed direction and approved decisions outside the change.
 
-Entrega qué cambió, por qué, qué se verificó y qué límites quedan. Distingue generación de imagen, código escrito, render observado y uso real. No prometas una evaluación estética infalible ni pruebas en dispositivos o asistentes donde no se ejecutó el flujo.
+Deliver what changed, why, what was verified, and remaining limitations. Distinguish image generation, written code, observed rendering, and real use. Do not promise infallible aesthetic evaluation or tests on devices or assistants where the flow was not executed.
 
-Ante «no me convence», identifica si falla composición, tipografía, densidad, color, imágenes, UX o movimiento; pregunta lo mínimo para resolverlo y modifica esa dimensión conservando el resto.
+When the user says “this doesn't feel right,” identify whether composition, typography, density, color, imagery, UX, or motion is failing; ask the minimum needed to resolve it and change that dimension while preserving the rest.

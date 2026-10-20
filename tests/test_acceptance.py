@@ -19,15 +19,15 @@ class AcceptanceTrial(unittest.TestCase):
 
     def check(self, gate, kind, status='pass'):
         return {
-            'id': gate, 'gate': gate, 'request': 'Requisito del caso',
-            'expected': 'Resultado observable', 'observed': 'Resultado declarado en el caso de prueba',
+            'id': gate, 'gate': gate, 'request': 'Case requirement',
+            'expected': 'Observable result', 'observed': 'Result declared in the test case',
             'status': status,
-            'evidence': [{'kind': kind, 'ref': 'http://localhost:5173/#' + gate, 'note': 'Evidencia declarada para probar el registro, no una ejecución real del producto'}],
+            'evidence': [{'kind': kind, 'ref': 'http://localhost:5173/#' + gate, 'note': 'Evidence declared to test the record, not a real product execution'}],
         }
 
     def record(self):
         return {
-            'schema_version': 1, 'scope': 'Hero y navegación', 'motion_required': True,
+            'schema_version': 1, 'scope': 'Hero and navigation', 'motion_required': True,
             'checks': [self.check('functional', 'interaction'), self.check('brief', 'screenshot'), self.check('motion', 'playback')],
         }
 
@@ -80,7 +80,7 @@ class AcceptanceTrial(unittest.TestCase):
     def test_all_independent_declared_reviews_are_needed(self):
         code, report = self.run_review(self.record())
         self.assertEqual((code, report['status']), (0, 'ready_for_review'))
-        self.assertIn('registro declarado', report['limitation'])
+        self.assertIn('declared record', report['limitation'])
 
     def test_static_brief_can_skip_motion(self):
         record = self.record()

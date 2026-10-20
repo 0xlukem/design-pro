@@ -4,7 +4,7 @@ An agent skill for designing, building, and reviewing web interfaces with a dist
 
 Design Pro turns a brief into observable design decisions. It combines creative discovery, visual references, adjustable direction controls, and separate acceptance checks for functionality, brief fidelity, and motion. Version 1.3 includes **20 visual style families** and a **36-resource decision catalog** organized around seven design problems.
 
-The same skill works with **Claude Code and Codex**. It supports existing stacks and uses the tools available in the current environment. The core instructions are written in Spanish; the agent responds in the user's language.
+The same skill works with **Claude Code and Codex**. It supports existing stacks and uses the tools available in the current environment. The instructions, reference guides, and examples are written in English; the agent responds in the user's language.
 
 ## Install
 

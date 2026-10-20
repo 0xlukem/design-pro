@@ -1,42 +1,42 @@
-# Auditoría estática de patrones
+# Static pattern audit
 
-El script `scripts/audit_ui.py` usa solo Python 3 y la biblioteca estándar. Lee el código y devuelve JSON por stdout; no modifica el proyecto, instala dependencias ni accede a la red.
+The `scripts/audit_ui.py` script uses only Python 3 and the standard library. It reads code and returns JSON on stdout; it does not modify the project, install dependencies, or access the network.
 
-## Ejecutar
+## Run
 
-Resuelve `SKILL_DIR` como la carpeta desde la que leíste esta skill. No presupongas una ruta personal ni un directorio exclusivo de un asistente.
+Resolve `SKILL_DIR` to the folder from which you read this skill. Do not assume a personal path or a directory specific to one assistant.
 
 ```sh
-python3 "$SKILL_DIR/scripts/audit_ui.py" "/ruta/al/proyecto" --file src/hero.tsx --file src/styles.css
+python3 "$SKILL_DIR/scripts/audit_ui.py" "/path/to/project" --file src/hero.tsx --file src/styles.css
 ```
 
-Usa `--file` repetido para limitar la revisión al código afectado. Sin ese argumento recorre archivos de interfaz del proyecto y excluye dependencias y salidas de build habituales; podría informar problemas preexistentes fuera del cambio. No amplíes el alcance del trabajo para eliminarlos automáticamente.
+Repeat `--file` to limit review to affected code. Without that argument, the script scans interface files in the project and excludes common dependencies and build outputs; it may report existing issues outside the change. Do not expand the work scope to remove them automatically.
 
-## Reglas y resultados
+## Rules and results
 
-| Regla | Detecta | Tratamiento |
+| Rule | Detects | Treatment |
 | --- | --- | --- |
-| DP001 | Funciones CSS de gradiente, gradientes SVG y utilidades comunes de Tailwind | Revisar el bloqueo y cualquier excepción explícita. |
-| DP002 | Declaraciones e imports comunes de Inter, fuentes web y utilidades habituales | Revisar el bloqueo y cualquier excepción explícita. |
-| DP003 | Sintaxis común de repetición infinita y utilidades de pulso, rebote o giro | Revisión contextual: puede ser actividad decorativa o un indicador funcional. |
+| DP001 | CSS gradient functions, SVG gradients, and common Tailwind utilities | Review the restriction and any explicit exception. |
+| DP002 | Common Inter declarations and imports, web fonts, and common utilities | Review the restriction and any explicit exception. |
+| DP003 | Common infinite-repeat syntax and pulse, bounce, or spin utilities | Contextual review: it may be decorative activity or a functional indicator. |
 
-El script conserva números de línea y omite comentarios de sintaxis común. No es un parser completo: nombres calculados, CSS escapado, variables, recursos raster y otras construcciones pueden quedar fuera. Strings de ejemplos o contenido pueden producir falsos positivos. Inspecciona cada hallazgo en su contexto.
+The script preserves line numbers and skips common comment syntax. It is not a complete parser: computed names, escaped CSS, variables, raster assets, and other constructions may be missed. Example strings or content can produce false positives. Inspect each finding in context.
 
-- Salida **0**: sin patrones pendientes dentro del alcance; **no** significa «diseño aprobado».
-- Salida **1**: hay bloqueos o revisiones contextuales pendientes.
-- Salida **2**: error de entrada, lectura o configuración; no se completó la auditoría.
+- Exit code **0**: no unresolved patterns within scope; this does **not** mean “design approved.”
+- Exit code **1**: blocked patterns or contextual reviews remain unresolved.
+- Exit code **2**: input, reading, or configuration error; the audit did not complete.
 
-El JSON declara siempre `scope: "static_source_patterns_only"` y `creative_verdict: "not_assessed"`. Llegar de muchos hallazgos a cero solo cierra esa revisión de patrones. No habilita a declarar que el brief, la identidad o la animación quedaron logrados.
+The JSON always declares `scope: "static_source_patterns_only"` and `creative_verdict: "not_assessed"`. Reducing many findings to zero closes only that pattern review. It does not justify declaring that the brief, identity, or animation has been achieved.
 
-No detecta semánticamente eyebrows, copy genérico, cards de relleno, CTAs competidores, jerarquía, contraste, recortes, comportamiento ni calidad del movimiento. Eso requiere revisar el render y recorrer la experiencia.
+It does not semantically detect eyebrows, generic copy, filler cards, competing CTAs, hierarchy, contrast, cropping, behavior, or motion quality. These require inspecting the render and walking through the experience.
 
-Conserva sus resultados como higiene de fuente y usa las revisiones separadas de [aceptación](acceptance.md) para el cierre del trabajo. No promedies el recuento del auditor con una valoración visual o temporal ni elimines un efecto expresamente pedido solo para reducir DP003: revisa y registra el alcance de la petición.
+Keep its results as source hygiene and use the separate [acceptance](acceptance.md) reviews for completion. Do not average the auditor's count with a visual or temporal assessment or remove an expressly requested effect solely to reduce DP003: review and record the scope of the request.
 
-## Excepciones acotadas
+## Scoped exceptions
 
-Cuando corresponda, pasa `--exceptions /ruta/excepciones.json`. Cada entrada debe nombrar regla, archivo relativo y rango de líneas. Esta lista registra decisiones, no concede permisos ni demuestra que una solicitud sea auténtica. Vincúlala al pedido real en la conversación; no inventes una excepción para conseguir salida 0.
+When appropriate, pass `--exceptions /path/to/exceptions.json`. Each entry must name the rule, relative file, and line range. This list records decisions; it does not grant permission or establish that a request is authentic. Link it to the actual request in the conversation; do not invent an exception to obtain exit code 0.
 
-Ejemplo de formato para un gradiente pedido expresamente en una región concreta:
+Example format for a gradient expressly requested in a specific region:
 
 ```json
 [
@@ -46,14 +46,14 @@ Ejemplo de formato para un gradiente pedido expresamente en una región concreta
     "start_line": 12,
     "end_line": 12,
     "basis": "user-request",
-    "reason": "El usuario habilitó el gradiente solo en este fondo.",
-    "user_request": "Quiero un gradiente en el fondo del hero."
+    "reason": "The user enabled the gradient only in this background.",
+    "user_request": "I want a gradient in the hero background."
   }
 ]
 ```
 
-Para DP003, `basis: "functional"` permite registrar un indicador de procesamiento real con `reason` que explique qué representa, cuándo termina y cómo se adapta a movimiento reducido. No habilita gradientes ni Inter.
+For DP003, `basis: "functional"` records a real processing indicator with a `reason` explaining what it represents, when it ends, and how it adapts to reduced motion. It does not enable gradients or Inter.
 
-Para un falso positivo real en una cadena de ejemplo u otra sintaxis fuera de uso visual, explica el hallazgo en la entrega. Mantén la salida pendiente si el script no puede expresarlo; no inventes una petición humana ni un propósito funcional.
+For a real false positive in an example string or other syntax outside visual use, explain the finding in the delivery. Keep the result pending if the script cannot express it; do not invent a human request or functional purpose.
 
-Vuelve a revisar los rangos después de editar: las líneas pueden cambiar. El informe incluye excepciones no utilizadas para detectar configuraciones desalineadas. Conserva la evidencia proporcional en el trabajo temporal o en el sistema de revisión existente.
+Recheck ranges after editing: lines may change. The report includes unused exceptions to identify stale configuration. Keep proportionate evidence in temporary work or the existing review system.

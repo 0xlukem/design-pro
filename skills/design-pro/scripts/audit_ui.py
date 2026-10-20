@@ -24,7 +24,7 @@ COMMENT_TOKENS = re.compile(
 )
 RULES = {
     'DP001': (
-        'blocked', 'Gradiente detectado: revisar bloqueo y alcance de excepción.',
+        'blocked', 'Gradient detected: review restriction and exception scope.',
         re.compile(
             r'\b(?:repeating-)?(?:linear|radial|conic)-gradient\s*\('
             r'|<\s*(?:linearGradient|radialGradient)\b'
@@ -34,7 +34,7 @@ RULES = {
         ),
     ),
     'DP002': (
-        'blocked', 'Uso o carga de Inter detectado.',
+        'blocked', 'Inter usage or loading detected.',
         re.compile(
             r'\b(?:font-family|fontFamily)\s*[:=][^;\n}]*?\bInter\b'
             r'|\bimport\s*\{[^}]*\bInter\b[^}]*\}\s*from\s*[\'"]next/font/(?:google|local)[\'"]'
@@ -47,7 +47,7 @@ RULES = {
         ),
     ),
     'DP003': (
-        'review', 'Bucle detectado: comprobar propósito, finalización y accesibilidad.',
+        'review', 'Loop detected: check purpose, completion, and accessibility.',
         re.compile(
             r'\banimation(?:-iteration-count)?\s*:[^;\n}]*\binfinite\b'
             r'|\brepeat\s*:\s*(?:Infinity\b|-1\b)'
@@ -70,19 +70,19 @@ def remove_comments(source):
 def relative_source(root, relative):
     path = Path(relative)
     if path.is_absolute() or '..' in path.parts:
-        raise ValueError('Los paths deben ser relativos al proyecto y sin ..')
+        raise ValueError('Paths must be project-relative and contain no ..')
     candidate = root / path
     if candidate.is_symlink():
-        raise ValueError('No se auditan symlinks: ' + str(relative))
+        raise ValueError('Symlinks are not audited: ' + str(relative))
     resolved = candidate.resolve()
     try:
         resolved.relative_to(root)
     except ValueError as error:
-        raise ValueError('Path fuera del proyecto: ' + str(relative)) from error
+        raise ValueError('Path outside the project: ' + str(relative)) from error
     if not resolved.is_file() or resolved.suffix.lower() not in EXTENSIONS:
-        raise ValueError('No es un archivo de código compatible: ' + str(relative))
+        raise ValueError('Not a supported source file: ' + str(relative))
     if any(part in EXCLUDED for part in resolved.relative_to(root).parts):
-        raise ValueError('Archivo dentro de un directorio excluido: ' + str(relative))
+        raise ValueError('File inside an excluded directory: ' + str(relative))
     return resolved
 
 
@@ -91,31 +91,31 @@ def load_exceptions(path, root):
         return []
     entries = json.loads(Path(path).read_text(encoding='utf-8'))
     if not isinstance(entries, list):
-        raise ValueError('El archivo de excepciones debe contener una lista JSON.')
+        raise ValueError('The exceptions file must contain a JSON list.')
     allowed_keys = {
         'rule', 'path', 'start_line', 'end_line', 'basis', 'reason', 'user_request',
     }
     for entry in entries:
         if not isinstance(entry, dict) or set(entry) - allowed_keys:
-            raise ValueError('Excepción con campos desconocidos o formato inválido.')
+            raise ValueError('Exception has unknown fields or an invalid format.')
         if entry.get('rule') not in RULES or entry.get('basis') not in {'user-request', 'functional'}:
-            raise ValueError('Regla o base de excepción inválida.')
+            raise ValueError('Invalid exception rule or basis.')
         for key in ('path', 'reason'):
             if not isinstance(entry.get(key), str) or not entry[key].strip():
-                raise ValueError('Cada excepción requiere ' + key)
+                raise ValueError('Each exception requires ' + key)
         for key in ('start_line', 'end_line'):
             if type(entry.get(key)) is not int or entry[key] < 1:
-                raise ValueError('Cada excepción requiere líneas positivas.')
+                raise ValueError('Each exception requires positive line numbers.')
         if entry['end_line'] < entry['start_line']:
-            raise ValueError('Rango de líneas invertido.')
+            raise ValueError('Reversed line range.')
         if entry['basis'] == 'functional' and entry['rule'] != 'DP003':
-            raise ValueError('La base funcional solo resuelve hallazgos DP003.')
+            raise ValueError('The functional basis only resolves DP003 findings.')
         if entry['basis'] == 'user-request':
             if not isinstance(entry.get('user_request'), str) or not entry['user_request'].strip():
-                raise ValueError('La excepción explícita requiere el pedido del usuario.')
+                raise ValueError('An explicit exception requires the user request.')
         file = relative_source(root, entry['path'])
         if entry['end_line'] > len(file.read_text(encoding='utf-8').splitlines()):
-            raise ValueError('Excepción fuera de las líneas del archivo.')
+            raise ValueError('Exception outside the file line range.')
         entry['path'] = file.relative_to(root).as_posix()
     return entries
 
@@ -155,20 +155,20 @@ def audit(root, files, exceptions):
         'exceptions_applied': len(applied),
         'unused_exceptions': [i for i in range(len(exceptions)) if i not in applied],
         'findings': sorted(findings, key=lambda item: (item['path'], item['line'], item['rule'])),
-        'limitation': 'Revisión de patrones estáticos; no certifica estética, UX ni accesibilidad.',
+        'limitation': 'Static pattern review; does not certify aesthetics, UX, or accessibility.',
     }
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('root', help='Directorio del proyecto a revisar.')
-    parser.add_argument('--file', action='append', default=[], help='Archivo relativo; repetir para limitar alcance.')
-    parser.add_argument('--exceptions', help='Lista JSON de excepciones justificadas por archivo y líneas.')
+    parser.add_argument('root', help='Project directory to review.')
+    parser.add_argument('--file', action='append', default=[], help='Relative file; repeat to limit scope.')
+    parser.add_argument('--exceptions', help='JSON list of justified exceptions by file and line range.')
     args = parser.parse_args()
     try:
         root = Path(args.root).resolve()
         if not root.is_dir():
-            raise ValueError('El proyecto debe ser un directorio existente.')
+            raise ValueError('The project must be an existing directory.')
         if args.file:
             files = sorted({relative_source(root, path) for path in args.file})
         else:
@@ -180,7 +180,7 @@ def main():
                     if not file.is_symlink() and file.suffix.lower() in EXTENSIONS:
                         files.append(file)
         if not files:
-            raise ValueError('No hay archivos de código compatibles en el alcance.')
+            raise ValueError('No supported source files within scope.')
         exceptions = load_exceptions(args.exceptions, root)
         report = audit(root, files, exceptions)
         print(json.dumps(report, ensure_ascii=False, indent=2))

@@ -1,85 +1,85 @@
-# Responsive y mobile con evidencia
+# Responsive and mobile verification with evidence
 
-Lee este documento antes de entregar una implementación o auditoría visual. Aplica el recorrido a las pantallas y comportamientos afectados; amplía cuando el cambio alcance un componente compartido.
+Read this document before delivering a visual implementation or audit. Apply the walkthrough to affected screens and behavior; expand it when the change affects a shared component.
 
-## Composición mobile
+## Mobile composition
 
-Decide prioridades de lectura, acción, navegación, recortes, densidad y elementos fijos. La pantalla pequeña necesita su propia composición coherente con la dirección elegida. Evita resolverla únicamente reduciendo la fuente o apilando todo sin jerarquía.
+Decide reading, action, navigation, cropping, density, and fixed-element priorities. A small screen needs its own composition, consistent with the chosen direction. Avoid solving it solely by shrinking the font or stacking everything without hierarchy.
 
-Conserva la tarea y la información esencial. Si una tabla requiere dos dimensiones, puede usar un contenedor de scroll reconocible; eso no justifica overflow horizontal de toda la página. Comprueba que los controles no queden fuera de alcance.
+Preserve the task and essential information. If a table needs two dimensions, it can use a recognizable scroll container; this does not justify horizontal overflow across the whole page. Check that controls remain reachable.
 
-Si se produce una referencia visual, muestra desktop y mobile de la misma dirección. El tablero de estilos no sustituye esta decisión.
+When producing a visual reference, show desktop and mobile versions of the same direction. The style board does not replace this decision.
 
-## Elegir anchos y breakpoints
+## Choose widths and breakpoints
 
-Inspecciona los breakpoints reales de los componentes afectados. Ajusta la composición donde el contenido deja de funcionar, sin asumir que las clases estándar cubren todos los rangos.
+Inspect the actual breakpoints of affected components. Adjust composition where content stops working, without assuming standard classes cover every range.
 
-| Grupo | Puntos de prueba de partida |
+| Group | Starting verification points |
 | --- | --- |
-| Mobile | 320, 360, 390 y 430 CSS px. |
-| Tablet | 768 o 820, y 1024 si cambia estructura u orientación. |
-| Desktop | 1280 o 1440; 1920 o mayor cuando la superficie lo requiere. |
-| Límites | Para cada breakpoint relevante B, comprobar B−1, B y B+1. |
-| Rangos | Redimensionar entre puntos para encontrar anchos intermedios rotos. |
+| Mobile | 320, 360, 390, and 430 CSS px. |
+| Tablet | 768 or 820, and 1024 if structure or orientation changes. |
+| Desktop | 1280 or 1440; 1920 or wider when the surface requires it. |
+| Boundaries | For every relevant breakpoint B, check B−1, B, and B+1. |
+| Ranges | Resize between points to find broken intermediate widths. |
 
-Estos anchos son puntos de verificación, no una exigencia de crear media queries para cada uno. En un ajuste acotado, realiza la comprobación profunda donde cambia el comportamiento y una regresión proporcionada en los otros rangos.
+These widths are verification points, not a requirement to create media queries for each one. For a focused adjustment, check deeply where behavior changes and perform a proportionate regression check in other ranges.
 
-Ejemplo: si el menú cambia a 768 px, revisar 767, 768 y 769. Si el texto falla a 910, corregir ese rango aunque no sea una medida de dispositivo habitual.
+Example: if the menu changes at 768 px, review 767, 768, and 769. If text breaks at 910, correct that range even though it is not a common device size.
 
-## Revisar contenido y espacio
+## Review content and space
 
-- Desbordamiento horizontal de página y de componentes; no ocultarlo globalmente para hacer pasar la prueba.
-- Saltos de títulos, ancho de lectura, tamaños legibles y espaciado entre secciones.
-- Encuadre completo: cuánto contenido, imagen y siguiente acción se ve en la altura disponible.
-- Protagonismo prometido: comprobar que el medio o la demostración pedidos dominen donde corresponde y no queden desplazados debajo del primer encuadre por el texto o los controles.
-- Imágenes con dimensiones reservadas, recorte pertinente y resolución adecuada.
-- Nombres y títulos largos, acentos, cantidades grandes, vacíos, listas extensas y datos faltantes.
-- Cambios de fuente o carga de medios que alteran la composición.
+- Horizontal page and component overflow; do not hide it globally to make the check pass.
+- Heading breaks, reading width, readable sizes, and spacing between sections.
+- Full framing: how much content, imagery, and the next action fit in the available height.
+- Promised prominence: check that requested media or demonstrations dominate where intended and are not pushed below the initial frame by text or controls.
+- Images with reserved dimensions, meaningful crops, and suitable resolution.
+- Long names and titles, accented characters, large quantities, empty states, extensive lists, and missing data.
+- Font changes or media loading that alter composition.
 
-## Revisar operación
+## Review operation
 
-Recorre las acciones principales por touch emulado o real y por teclado. Comprueba menú, búsqueda, filtros, formularios, diálogos y recuperación de errores según el producto.
+Walk through primary actions with emulated or real touch and with the keyboard. Check menus, search, filters, forms, dialogs, and error recovery as relevant to the product.
 
-Usa 44 × 44 CSS px como objetivo práctico de área táctil, con separación suficiente. Es una decisión de calidad de esta skill, no una afirmación de que todo criterio AA exige 44 px. Los iconos pueden ser pequeños dentro de un área interactiva adecuada.
+Use 44 × 44 CSS px as a practical touch-area target, with sufficient spacing. This is a quality choice in this skill, not a claim that every AA criterion requires 44 px. Icons can be small within a suitable interactive area.
 
-Revisa orden de foco, control enfocado visible, zoom y movimiento reducido. Comprueba que un sticky o una barra flotante no tape texto, resultados ni acciones.
+Review focus order, visibility of the focused control, zoom, and reduced motion. Check that sticky or floating bars do not cover text, results, or actions.
 
-Comprueba alturas bajas y orientación horizontal donde afecten la operación. En formularios, considera teclado virtual, scroll al campo activo y controles de envío. Si el entorno permite observar un dispositivo real, verifica también barras del navegador y áreas seguras.
+Check short heights and landscape orientation when they affect operation. For forms, consider the virtual keyboard, scrolling to the active field, and submission controls. If the environment supports observing a real device, also check browser bars and safe areas.
 
-No elijas `100dvh` universalmente: usa altura por contenido, `svh` estable o `dvh` adaptable según el comportamiento esperado. El teclado virtual y las barras del navegador requieren observación específica; una captura desktop estrecha no demuestra su funcionamiento.
+Do not choose `100dvh` universally: use content-based height, stable `svh`, or adaptive `dvh` according to expected behavior. The virtual keyboard and browser bars require specific observation; a narrow desktop screenshot does not establish their behavior.
 
-## Capturas y recorrido
+## Captures and walkthrough
 
-Usa el mismo viewport, scroll y estado al comparar referencia, antes y después. Recorre la página con scroll real antes de capturar secciones cuya aparición depende del scroll. Espera la carga y el tamaño final de los medios.
+Use the same viewport, scroll position, and state when comparing the reference, before, and after. Scroll through the actual page before capturing sections whose appearance depends on scrolling. Wait for media to load and reach its final size.
 
-Incluye el viewport real del panel o ventana donde se evalúa el trabajo si se conoce; no compruebes solo presets amplios. Registra ancho, alto y posición del medio protagonista. Un hero correcto a 1440 px puede relegar su demostración en una ventana más estrecha aunque no haya overflow.
+Include the actual panel or window viewport where the work is being evaluated when known; do not check only wide presets. Record width, height, and the position of prominent media. A hero that works at 1440 px may relegate its demonstration in a narrower window despite having no overflow.
 
-Si se solicitó una escena animada, observa el mismo ciclo en el encuadre mobile y en el principal. Adaptar el coste o la disposición no debe convertirla silenciosamente en la imagen fija que el brief descartó. La alternativa accesible con movimiento reducido conserva el significado y se evalúa por separado.
+If an animated scene was requested, observe the same cycle in mobile and primary framing. Adapting cost or layout must not silently turn it into the fixed image the brief rejected. The accessible reduced-motion alternative preserves meaning and is assessed separately.
 
-Las capturas prueban composición. Ejecutar acciones prueba comportamiento. Combina ambos cuando el pedido incluya interacción.
+Screenshots establish composition. Executing actions establishes behavior. Combine both when the request includes interaction.
 
-La fidelidad al brief y el impacto temporal se registran además de los resultados responsive en [aceptación](acceptance.md). El resultado sin overflow no compensa un medio protagonista invisible o un lenguaje visual distinto del pedido.
+Record brief fidelity and temporal impact alongside responsive results in [acceptance](acceptance.md). No overflow cannot compensate for invisible prominent media or a visual language different from the request.
 
-Para trabajo amplio, conserva un registro de evidencia proporcional:
+For broad work, keep a proportionate evidence record:
 
-| Pantalla o flujo | Viewport y estado | Composición | Operación | Evidencia o pendiente |
+| Screen or flow | Viewport and state | Composition | Operation | Evidence or pending check |
 | --- | --- | --- | --- | --- |
-| Elemento revisado | Ancho × alto, orientación, estado | Resultado observado | Acción y resultado | Captura, traza o limitación concreta |
+| Reviewed element | Width × height, orientation, state | Observed result | Action and result | Screenshot, trace, or concrete limitation |
 
-No rellenes esta tabla con aprobaciones supuestas. Registra solo lo ejecutado. Los screenshots y logs pueden permanecer como material temporal de trabajo; no deben convertirse automáticamente en entregables del producto.
+Do not fill this table with assumed approvals. Record only what was executed. Screenshots and logs may remain temporary working material; they should not automatically become product deliverables.
 
-## Qué significa verificado
+## What verified means
 
-- «Responsive revisado» requiere render observado en los rangos afectados y recorrido de los estados relevantes.
-- «Mobile emulado» identifica una prueba con viewport, touch o perfil emulado.
-- «Dispositivo real» solo describe una prueba efectuada en ese dispositivo.
-- «Accesibilidad revisada» enumera qué se comprobó; no implica una certificación completa.
-- Si el navegador o una superficie no están disponibles, declara la limitación y las revisiones efectivamente realizadas. No sustituyas evidencia por una promesa.
+- “Responsive reviewed” requires observed rendering across affected ranges and a walkthrough of relevant states.
+- “Emulated mobile” identifies a test using an emulated viewport, touch, or device profile.
+- “Real device” describes only a test performed on that device.
+- “Accessibility reviewed” lists what was checked; it does not imply complete certification.
+- If the browser or a surface is unavailable, state the limitation and the reviews actually performed. Do not replace evidence with a promise.
 
-## Referencias técnicas
+## Technical references
 
-- [web.dev: breakpoints según contenido](https://web.dev/learn/design/media-queries)
-- [web.dev: diseño responsive accesible](https://web.dev/articles/accessible-responsive-design)
-- [web.dev: viewport pequeño, grande y dinámico](https://web.dev/blog/viewport-units)
+- [web.dev: content-based breakpoints](https://web.dev/learn/design/media-queries)
+- [web.dev: accessible responsive design](https://web.dev/articles/accessible-responsive-design)
+- [web.dev: small, large, and dynamic viewports](https://web.dev/blog/viewport-units)
 - [W3C: Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)
 - [W3C: Target Size (Enhanced)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html)
